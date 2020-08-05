@@ -9,13 +9,13 @@ body {
 
 .main-container {
     display: flex;
-    background-color: white;
     width: 90%;
     height: 500px;
     margin: 10px 5% 10px 5%;
 }
 
 .container-left {
+    background-color: white;
     border: 1px solid black;
     margin: 0 1% 10px 1%;
     width: 30%;
@@ -29,6 +29,7 @@ body {
 }
 
 .container-right-top {
+    background-color: white;
     border: 1px solid black;
     margin: 0 1% 10px 0;
     width: 99%;
@@ -36,11 +37,12 @@ body {
 }
 
 .container-right-down {
+    background-color: white;
     display: block;
     border: 1px solid black;
     margin: 0 1% 0 0;
     width: 99%;
-    height: 233px;
+    height: 245px;
 }
 
 footer {
