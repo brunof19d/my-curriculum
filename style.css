@@ -95,32 +95,24 @@ hr {
     height: 300px;
 }
 
-i {
-    width: 15px;
-    height: 15px;
-    margin: 0 5px 0 0;
-}
-
-.img-icon {
-    width: 15px;
-    height: 15px;
-    margin: 0 5px 0 0;
-}
-
-.img-icon-high {
-    width: 28px;
-    height: 28px;
-    margin: 0 5px 0 0;
-}
-
 .text-high {
     color: #757575;
     font-size: 28px;
 }
 
+.text-medium {
+    color: #757575;
+    font-size: 20px;
+}
+
 .icon-large {
-    color: #33bdef;
+    color: #019ad2;
     font-size: 28px;
+}
+
+.icon-medium {
+    color: #019ad2;
+    font-size: 20px;
 }
 
 .p-medium {
