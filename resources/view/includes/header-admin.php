@@ -16,10 +16,9 @@
     <?php if (isset($_SESSION['logged']) == TRUE): ?>
         <div class="container border bg-light mb-2 text-center">
             <h1>Admin Page</h1>
-            <div class="responsive nowrap">
+            <div class="d-flex justify-content-between responsive nowrap">
                 <a href="/home" class="btn btn-dark m-2">Home</a>
                 <a href="/register" class="btn btn-dark m-2">Register Admin</a>
-                <button class="btn btn-dark m-2">Excluir Admin</button>
                 <a href="/logout" class="btn btn-danger m-2">Logout</a>
             </div>
         </div>

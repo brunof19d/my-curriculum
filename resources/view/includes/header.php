@@ -6,10 +6,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <title>
-        <?php
-        /** @var RenderHtml $title */
-        echo $title;
-        ?>
+        <?php /** @var RenderHtml $title */ ?>
+        <?= $title; ?>
     </title>
 </head>
 <body>
