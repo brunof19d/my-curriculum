@@ -64,3 +64,8 @@ svg {
     position: relative;
     top: 1px;
 }
+
+.btn-edit {
+    border-radius: 20px;
+}
+

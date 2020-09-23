@@ -3,7 +3,9 @@
     <div class="border shadow">
         <div class="m-2">
             <p class="title-main"><i class="fas fa-briefcase"></i><strong>Work Experience</strong></p>
-
+            <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
+                <a href="/home" class="btn btn-dark btn-edit mb-2">Edit</a>
+            <?php endif; ?>
             <p><strong> Job Title </strong></p>
             <p><i class="far fa-calendar-alt"></i><strong>January 2020 - <span>Current</span></strong></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut varius varius lorem vel lacinia.
@@ -22,8 +24,10 @@
 
     <div class="border mt-3 shadow">
         <div class="m-2">
-            <p class="title-main"><i class="fas fa-university"></i><strong>Education</strong>
-            <p>
+            <p class="title-main"><i class="fas fa-university"></i><strong>Education</strong><p>
+                <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
+                    <a href="/home" class="btn btn-dark btn-edit mb-2">Edit</a>
+                <?php endif; ?>
             <p><strong>University</strong></p>
             <p><i class="far fa-calendar-alt"></i><strong> 2010 - 2015</strong></p>
             <p>Bachelor Degree</p>
@@ -36,15 +40,13 @@
 
             <hr>
 
-            <p><i class="fas fa-graduation-cap"></i><strong>Courses</strong></p>
-
+            <p class="title-main"><i class="fas fa-graduation-cap"></i><strong>Courses</strong></p>
+            <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
+                <a href="/home" class="btn btn-dark btn-edit">Edit</a>
+            <?php endif; ?>
             <!-- Buttons -->
-            <div class="m-2">
-                <a href="#" class="myButton">Title school</a>
-                <a href="#" class="myButton">Title school</a>
-                <a href="#" class="myButton">Title school</a>
-                <a href="#" class="myButton">Title school</a>
-                <a href="#" class="myButton">Title school</a>
+            <div class="m-2 d-flex justify-content-center">
+                <a href="#" class="myButton">Show all</a>
             </div>
 
         </div>

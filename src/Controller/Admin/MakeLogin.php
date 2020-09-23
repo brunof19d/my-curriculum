@@ -30,6 +30,7 @@ class MakeLogin implements RequestHandlerInterface
             return $redirectLogin;
         }
         $admin->setEmail($email);
-        return new Response(302, ['Location' => '/home']);
+        $_SESSION['logged'] = true;
+        return new Response(302, ['Location' => '/admin']);
     }
 }

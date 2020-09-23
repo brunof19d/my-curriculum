@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . "/../../includes/header.php"; ?>
 
 <div class="container">
-    <form method="post" action="/makelogin" class="card mx-auto w-50">
+    <form method="post" action="/make-login" class="card mx-auto w-50">
         <div class="card-header p-5 text-center">
             <h1>Administrative Page.</h1>
         </div>
