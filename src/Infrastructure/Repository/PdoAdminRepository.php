@@ -20,6 +20,11 @@ class PdoAdminRepository implements AdminRepository
         $this->pdo = Database::getConnection();
     }
 
+    /**
+     * Logs in an administrative user.
+     * @param Admin $admin Class Admin setters and getters.
+     * @return bool
+     */
     public function login(Admin $admin): bool
     {
         $sql = "SELECT * FROM admin WHERE email = :email";
@@ -38,6 +43,11 @@ class PdoAdminRepository implements AdminRepository
         return false;
     }
 
+    /**
+     * Register the admin in the database.
+     * @param Admin $admin Class Admin setters and getters.
+     * @return bool
+     */
     public function save(Admin $admin): bool
     {
         $sql = "INSERT INTO admin (email, password) VALUES (:email, :password)";
@@ -69,7 +79,7 @@ class PdoAdminRepository implements AdminRepository
      * @param PDOStatement $stmt Statement $sql->AllUser.
      * @return array
      */
-    private function treatUserList(PDOStatement $stmt): array
+    public function treatUserList(PDOStatement $stmt): array
     {
         $userDataList = $stmt->fetchAll();
         $userList = [];
@@ -81,5 +91,18 @@ class PdoAdminRepository implements AdminRepository
             array_push($userList, $userData);
         }
         return $userList;
+    }
+
+    /**
+     * Delete admin in Database.
+     * @param Admin $admin Class Admin setters and getters.
+     * @return void
+     */
+    public function remove(Admin $admin): void
+    {
+        $sql = "DELETE FROM admin WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $admin->getId(), PDO::PARAM_INT);
+        $stmt->execute();
     }
 }

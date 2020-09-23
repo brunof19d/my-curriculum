@@ -31,4 +31,14 @@ class Persist
         }
         return $validaPassword;
     }
+
+    public function filterId(int $id): int
+    {
+        $validId = filter_var($id, FILTER_VALIDATE_INT);
+
+        if (is_null($validId) || $validId == false) {
+            $this->defineMessage('danger', 'ID invalid.');
+        }
+        return $validId;
+    }
 }

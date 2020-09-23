@@ -1,6 +1,7 @@
 <?php
 
 use App\Controller\Admin\Admin;
+use App\Controller\Admin\DeleteAdmin;
 use App\Controller\Admin\EditPersonalData;
 use App\Controller\Admin\EditWork;
 use App\Controller\Admin\Logout;
@@ -19,6 +20,7 @@ return [
     '/admin' => Admin::class,
     '/register' => FormRegister::class,
     '/save-admin' => RegisterAdmin::class,
+    '/delete-admin' => DeleteAdmin::class,
     '/edit-personal-data' => EditPersonalData::class,
     '/edit-work' => EditWork::class,
 ];

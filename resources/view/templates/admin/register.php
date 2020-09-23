@@ -14,7 +14,7 @@
         <tr>
             <th><?= $user->getId(); ?></th>
             <td><?= $user->getEmail(); ?></td>
-            <td class="d-flex justify-content-center"><a href="#" class="btn btn-danger">Delete</a></td>
+            <td class="d-flex justify-content-center"><a href="/delete-admin?id=<?=$user->getId();?>" class="btn btn-danger">Delete</a></td>
         </tr>
     <?php endforeach; ?>
     </tbody>
