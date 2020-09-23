@@ -8,6 +8,7 @@ use App\Entity\Model\Admin;
 use App\Entity\Repository\AdminRepository;
 use App\Infrastructure\Persistence\Database;
 use PDO;
+use PDOStatement;
 
 class PdoAdminRepository implements AdminRepository
 {
@@ -35,5 +36,50 @@ class PdoAdminRepository implements AdminRepository
             }
         }
         return false;
+    }
+
+    public function save(Admin $admin): bool
+    {
+        $sql = "INSERT INTO admin (email, password) VALUES (:email, :password)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':email' => $admin->getEmail(),
+            ':password' => $admin->getPassword()
+        ]);
+
+        if ($stmt) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Returns the list of users registered in the system.
+     * @return array
+     */
+    public function allUsers(): array
+    {
+        $sql = "SELECT * FROM admin";
+        $stmt = $this->pdo->query($sql);
+        return $this->treatUserList($stmt);
+    }
+
+    /**
+     * Treat the list received by the Database.
+     * @param PDOStatement $stmt Statement $sql->AllUser.
+     * @return array
+     */
+    private function treatUserList(PDOStatement $stmt): array
+    {
+        $userDataList = $stmt->fetchAll();
+        $userList = [];
+
+        foreach ($userDataList as $row) {
+            $userData = new Admin();
+            $userData->setId($row['id']);
+            $userData->setEmail($row['email']);
+            array_push($userList, $userData);
+        }
+        return $userList;
     }
 }

@@ -9,11 +9,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <th >1</th>
-        <td>bruno@bruno.com</td>
-        <td class="d-flex justify-content-center"><a href="#" class="btn btn-danger">Delete</a></td>
-
-    </tr>
+    <?php /** @var \App\Controller\Admin\FormRegister $query */ ?>
+    <?php foreach ($query as $user): ?>
+        <tr>
+            <th><?= $user->getId(); ?></th>
+            <td><?= $user->getEmail(); ?></td>
+            <td class="d-flex justify-content-center"><a href="#" class="btn btn-danger">Delete</a></td>
+        </tr>
+    <?php endforeach; ?>
     </tbody>
 </table>
