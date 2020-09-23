@@ -10,7 +10,7 @@
             </div>
             <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
                 <div class="d-flex justify-content-center">
-                    <a href="/home" class="btn btn-dark btn-edit w-50">Edit</a>
+                    <a href="/edit-personal-data" class="btn btn-dark btn-edit w-50">Edit</a>
                 </div>
             <?php endif; ?>
             <!-- Info Label -->

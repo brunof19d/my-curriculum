@@ -1,14 +1,14 @@
 <?php
 
 
-namespace App\Entity;
+namespace App\Entity\Model;
 
 
 class Admin
 {
     private int $id;
     private string $email;
-
+    private string $password;
     public function setId(int $id)
     {
         $this->id = $id;
@@ -27,5 +27,15 @@ class Admin
     public function getEmail(): string
     {
         return $this->email;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    public function getPassword(): string
+    {
+        return $this->password;
     }
 }

@@ -13,6 +13,7 @@
   },
   "require": {
     "php": "^7.4",
+    "ext-pdo": "*",
     "psr/http-message": "^1.0",
     "nyholm/psr7-server": "^1.0",
     "nyholm/psr7": "^1.3",

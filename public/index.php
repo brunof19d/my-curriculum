@@ -41,3 +41,5 @@ foreach ($received->getHeaders() as $name => $values) {
 }
 
 echo $received->getBody();
+
+$ok = \App\Infrastructure\Persistence\Database::getConnection();

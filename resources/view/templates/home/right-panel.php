@@ -4,7 +4,9 @@
         <div class="m-2">
             <p class="title-main"><i class="fas fa-briefcase"></i><strong>Work Experience</strong></p>
             <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
-                <a href="/home" class="btn btn-dark btn-edit mb-2">Edit</a>
+                <div class="d-flex justify-content-center">
+                    <a href="/edit-work" class="btn btn-dark btn-edit w-25">Edit</a>
+                </div>
             <?php endif; ?>
             <p><strong> Job Title </strong></p>
             <p><i class="far fa-calendar-alt"></i><strong>January 2020 - <span>Current</span></strong></p>
@@ -13,8 +15,8 @@
             </p>
 
             <hr>
-
             <p><b> Job Title </b></p>
+
             <p><i class="far fa-calendar-alt"></i><strong> January 2014 - December 2019</strong></p>
             <p>Quisque maximus sem lorem, a elementum libero auctor quis.
                 Mauris erat turpis, tristique ut fermentum in, viverra eu enim.

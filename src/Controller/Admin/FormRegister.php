@@ -10,16 +10,16 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class Login implements RequestHandlerInterface
+class FormRegister implements RequestHandlerInterface
 {
     use RenderHtml;
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $html = $this->render('admin/form.php', [
-            'title' => 'Login Admin',
-            'button' => 'Login',
-            'action' => '/make-login'
+        $html = $this->render('admin/register.php', [
+            'title' => 'Register Admin',
+            'button' => 'Register',
+            'action' => '/home'
         ]);
         return new Response(200, [], $html);
     }

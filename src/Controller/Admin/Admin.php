@@ -22,7 +22,6 @@ class Admin implements RequestHandlerInterface
             $this->defineMessage('danger', 'You need make login to access this area.');
             return new Response(302, ['Location' => '/login']);
         }
-
         $html = $this->render('admin/index.php', ['title' => 'Admin Page']);
         return new Response(200, [], $html);
     }

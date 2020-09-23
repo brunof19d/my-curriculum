@@ -10,17 +10,14 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class Login implements RequestHandlerInterface
+class EditWork
 {
     use RenderHtml;
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $html = $this->render('admin/form.php', [
-            'title' => 'Login Admin',
-            'button' => 'Login',
-            'action' => '/make-login'
-        ]);
+        $html = $this->render('admin/edit-work.php', ['title' => 'Edit Work Experience']);
         return new Response(200, [], $html);
     }
+
 }
