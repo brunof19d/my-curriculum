@@ -12,16 +12,24 @@ use App\Controller\Admin\FormLogin;
 use App\Controller\Admin\MakeLogin;
 
 
-return [
+return array(
+    //Home
     '/home' => Main::class,
+
+    // Login Area
     '/login' => FormLogin::class,
     '/make-login' => MakeLogin::class,
     '/logout' => Logout::class,
+
+    // Administrator actions
     '/admin' => Admin::class,
     '/register' => FormRegister::class,
     '/save-admin' => RegisterAdmin::class,
     '/delete-admin' => DeleteAdmin::class,
+
+    // Edit pages in admin area
     '/edit-personal-data' => FormEditPersonalData::class,
     '/edit-work' => FormEditWork::class,
-];
+    '/make-edit-work' => \App\Controller\Admin\EditWork::class,
+);
 

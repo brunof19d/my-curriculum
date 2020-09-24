@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Helper\FlashMessageTrait;
 use App\Helper\RenderHtml;
+use App\Infrastructure\Repository\PdoWorkRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -22,7 +23,13 @@ class Admin implements RequestHandlerInterface
             $this->defineMessage('danger', 'You need make login to access this area.');
             return new Response(302, ['Location' => '/login']);
         }
-        $html = $this->render('admin/index.php', ['title' => 'Admin Page']);
+
+        $resultList = new PdoWorkRepository();
+        $html = $this->render('admin/index.php', [
+            'title' => 'Admin Page',
+            'query' => $resultList->allUsers()
+        ]);
+
         return new Response(200, [], $html);
     }
 }

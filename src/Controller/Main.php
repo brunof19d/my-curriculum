@@ -4,6 +4,7 @@
 namespace App\Controller;
 
 use App\Helper\RenderHtml;
+use App\Infrastructure\Repository\PdoWorkRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -15,7 +16,12 @@ class Main implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $html = $this->render('home/index.php', ['title' => 'Home']);
+        $resultList = new PdoWorkRepository();
+        $html = $this->render('home/index.php', [
+            'title' => 'Home',
+            'query' => $resultList->allUsers()
+
+        ]);
         return new Response(200, [], $html);
     }
 }
