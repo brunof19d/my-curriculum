@@ -2,6 +2,7 @@
 
 use App\Controller\Admin\Admin;
 use App\Controller\Admin\DeleteAdmin;
+use App\Controller\Admin\EditWork;
 use App\Controller\Admin\FormEditPersonalData;
 use App\Controller\Admin\FormEditWork;
 use App\Controller\Admin\Logout;
@@ -12,7 +13,7 @@ use App\Controller\Admin\FormLogin;
 use App\Controller\Admin\MakeLogin;
 
 
-return array(
+return [
     //Home
     '/home' => Main::class,
 
@@ -21,15 +22,21 @@ return array(
     '/make-login' => MakeLogin::class,
     '/logout' => Logout::class,
 
-    // Administrator actions
+    // Administrator Users
     '/admin' => Admin::class,
     '/register' => FormRegister::class,
     '/save-admin' => RegisterAdmin::class,
     '/delete-admin' => DeleteAdmin::class,
 
+    // Work Experience section
+    '/add-work-page' => \App\Controller\Admin\FormAddWork::class,
+    '/add-work' => \App\Controller\Admin\AddWork::class,
+    '/edit-work' => FormEditWork::class,
+    '/make-edit-work' => EditWork::class,
+
+
     // Edit pages in admin area
     '/edit-personal-data' => FormEditPersonalData::class,
-    '/edit-work' => FormEditWork::class,
-    '/make-edit-work' => \App\Controller\Admin\EditWork::class,
-);
+
+];
 

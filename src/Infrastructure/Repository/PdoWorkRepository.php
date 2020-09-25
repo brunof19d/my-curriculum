@@ -42,6 +42,17 @@ class PdoWorkRepository implements WorkRepository
         return false;
     }
 
+    public function singleId(int $id)
+    {
+        $sql = "SELECT * FROM work WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':id' => $id
+        ]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+    }
+
     /**
      * Returns the list of users registered in the system.
      * @return array
@@ -74,5 +85,31 @@ class PdoWorkRepository implements WorkRepository
             array_push($workList, $workData);
         }
         return $workList;
+    }
+
+    /**
+     * Update.
+     * @param Work $work Class Work setters and getters.
+     * @return void
+     */
+    public function update(Work $work): void
+    {
+        $sql = "UPDATE work SET 
+            title_job = :title_job, 
+            data_begin = :data_begin, 
+            data_end = :data_end, 
+            current = :current,
+            description = :description
+            WHERE
+            id = :id
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':title_job', $work->getTitleJob(), PDO::PARAM_STR);
+        $stmt->bindValue(':data_begin', $work->getDataBegin());
+        $stmt->bindValue(':data_end', $work->getDataEnd());
+        $stmt->bindValue(':current', $work->getCurrent());
+        $stmt->bindValue(':description', $work->getDescription());
+        $stmt->bindValue(':id', $work->getId());
+        $stmt->execute();
     }
 }

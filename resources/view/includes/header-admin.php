@@ -17,7 +17,7 @@
         <div class="container border bg-light mb-2 text-center">
             <h1>Admin Page</h1>
             <div class="d-flex justify-content-between responsive nowrap">
-                <a href="/home" class="btn btn-dark m-2">Home</a>
+                <a href="/admin" class="btn btn-dark m-2">Home</a>
                 <a href="/register" class="btn btn-dark m-2">Register Admin</a>
                 <a href="/logout" class="btn btn-danger m-2">Logout</a>
             </div>

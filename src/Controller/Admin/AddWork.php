@@ -12,7 +12,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class EditWork implements RequestHandlerInterface
+class AddWork implements RequestHandlerInterface
 {
     use FlashMessageTrait;
 
@@ -27,7 +27,6 @@ class EditWork implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $id = $_POST['id'];
         $title_job = $_POST['title_job'];
         $date_begin = $_POST['date_begin'];
         $date_end = $_POST['date_end'];
@@ -39,11 +38,9 @@ class EditWork implements RequestHandlerInterface
         $this->work->setDataEnd($date_end);
         $this->work->setCurrent($current);
         $this->work->setDescription($description);
-        $this->work->setId($id);
 
-
-        $this->repository->update($this->work);
-        $this->defineMessage('success', 'Section data job successfully edited');
+        $this->repository->save($this->work);
+        $this->defineMessage('success', 'Work experience added with success');
         return new Response(302, ['Location' => '/admin']);
     }
 }

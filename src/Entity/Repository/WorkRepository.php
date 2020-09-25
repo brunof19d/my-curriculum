@@ -8,5 +8,5 @@ use App\Entity\Model\Work;
 
 interface WorkRepository
 {
-    public function save(Work $work): bool;
+    public function save(Work $work);
 }

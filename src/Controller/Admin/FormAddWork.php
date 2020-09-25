@@ -5,28 +5,22 @@ namespace App\Controller\Admin;
 
 
 use App\Helper\RenderHtml;
-use App\Infrastructure\Repository\PdoWorkRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class FormEditWork implements RequestHandlerInterface
+class FormAddWork implements RequestHandlerInterface
 {
     use RenderHtml;
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $id = $_GET['edit'];
-        $repository = new PdoWorkRepository();
-
         $html = $this->render('admin/form-work.php', [
-            'title' => 'Edit Work Experience',
-            'button' => 'Save',
-            'action' => '/make-edit-work',
-            'row' => $repository->singleId($id)
+            'title' => 'Add Work Experience',
+            'button' => 'Create',
+            'action' => '/add-work'
         ]);
         return new Response(200, [], $html);
     }
-
 }

@@ -8,11 +8,14 @@
                 <img src="img/polar.jpg" alt="Image Profile" width="100%" height="230">
                 <h1 class="text-img">My Name</h1>
             </div>
+
+            <!-- Button Edit -->
             <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
                 <div class="d-flex justify-content-center">
                     <a href="/edit-personal-data" class="btn btn-dark btn-edit w-50">Edit</a>
                 </div>
             <?php endif; ?>
+
             <!-- Info Label -->
             <div class="m-2">
 

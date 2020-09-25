@@ -19,7 +19,7 @@ class FormRegister implements RequestHandlerInterface
     {
         $resultList = new PdoAdminRepository();
 
-        $html = $this->render('admin/register.php', [
+        $html = $this->render('admin/form.php', [
             'title' => 'Register Admin',
             'button' => 'Register',
             'action' => '/save-admin',
