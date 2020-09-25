@@ -19,45 +19,11 @@ class PdoWorkRepository implements WorkRepository
         $this->pdo = Database::getConnection();
     }
 
-
-    public function save(Work $work): bool
-    {
-        $sql = "INSERT INTO work 
-            (title_job, data_begin, data_end, current, description)
-            VALUES
-            (:title_job, :data_begin, :data_end, :current, :description)
-        ";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            ':title_job' => $work->getTitleJob(),
-            ':data_begin' => $work->getDataBegin(),
-            ':data_end' => $work->getDataEnd(),
-            ':current' => $work->getCurrent(),
-            ':description' => $work->getDescription()
-        ]);
-
-        if ($stmt) {
-            return true;
-        }
-        return false;
-    }
-
-    public function singleId(int $id)
-    {
-        $sql = "SELECT * FROM work WHERE id = :id";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            ':id' => $id
-        ]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
-
-    }
-
     /**
-     * Returns the list of users registered in the system.
+     * Return list of all work experience added in the system.
      * @return array
      */
-    public function allUsers(): array
+    public function allWorksExperience(): array
     {
         $sql = "SELECT * FROM work";
         $stmt = $this->pdo->query($sql);
@@ -65,7 +31,7 @@ class PdoWorkRepository implements WorkRepository
     }
 
     /**
-     * Treat the list received by the Database.
+     * Treat the list work experience received by the function allWorksExperience.
      * @param PDOStatement $stmt Statement $sql->AllUser.
      * @return array
      */
@@ -85,6 +51,39 @@ class PdoWorkRepository implements WorkRepository
             array_push($workList, $workData);
         }
         return $workList;
+    }
+
+    public function searchWorkExperience(int $id): array
+    {
+        $sql = "SELECT * FROM work WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':id' => $id
+        ]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+
+    }
+
+    /**
+     * Save
+     * @param Work $work Class Work setters and getters.
+     * @return void
+     */
+    public function save(Work $work): void
+    {
+        $sql = "INSERT INTO work 
+            (title_job, data_begin, data_end, current, description)
+            VALUES
+            (:title_job, :data_begin, :data_end, :current, :description)
+        ";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':title_job' => $work->getTitleJob(),
+            ':data_begin' => $work->getDataBegin(),
+            ':data_end' => $work->getDataEnd(),
+            ':current' => $work->getCurrent(),
+            ':description' => $work->getDescription()
+        ]);
     }
 
     /**
@@ -110,6 +109,19 @@ class PdoWorkRepository implements WorkRepository
         $stmt->bindValue(':current', $work->getCurrent());
         $stmt->bindValue(':description', $work->getDescription());
         $stmt->bindValue(':id', $work->getId());
+        $stmt->execute();
+    }
+
+    /**
+     * Delete admin in Database.
+     * @param Work $work Class Admin setters and getters.
+     * @return void
+     */
+    public function remove(Work $work): void
+    {
+        $sql = "DELETE FROM work WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $work->getId(), PDO::PARAM_INT);
         $stmt->execute();
     }
 }

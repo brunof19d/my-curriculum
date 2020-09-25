@@ -12,7 +12,6 @@ use PDOStatement;
 
 class PdoAdminRepository implements AdminRepository
 {
-
     private PDO $pdo;
 
     public function __construct()
@@ -21,50 +20,7 @@ class PdoAdminRepository implements AdminRepository
     }
 
     /**
-     * Logs in an administrative user.
-     * @param Admin $admin Class Admin setters and getters.
-     * @return bool
-     */
-    public function login(Admin $admin): bool
-    {
-        $sql = "SELECT * FROM admin WHERE email = :email";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':email', $admin->getEmail(), PDO::PARAM_STR);
-        $stmt->execute();
-
-        $count = $stmt->rowCount();
-
-        if ($count > 0) {
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($admin->getPassword() == $result['password']) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Register the admin in the database.
-     * @param Admin $admin Class Admin setters and getters.
-     * @return bool
-     */
-    public function save(Admin $admin): bool
-    {
-        $sql = "INSERT INTO admin (email, password) VALUES (:email, :password)";
-        $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([
-            ':email' => $admin->getEmail(),
-            ':password' => $admin->getPassword()
-        ]);
-
-        if ($stmt) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Returns the list of users registered in the system.
+     * Returns the list of users admin registered in the database.
      * @return array
      */
     public function allUsers(): array
@@ -91,6 +47,45 @@ class PdoAdminRepository implements AdminRepository
             array_push($userList, $userData);
         }
         return $userList;
+    }
+
+    /**
+     * Logs in an administrative user.
+     * @param Admin $admin Class Admin setters and getters.
+     * @return bool
+     */
+    public function login(Admin $admin): bool
+    {
+        $sql = "SELECT * FROM admin WHERE email = :email";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':email', $admin->getEmail(), PDO::PARAM_STR);
+        $stmt->execute();
+
+        $count = $stmt->rowCount();
+
+        // Check Password
+        if ($count > 0) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($admin->getPassword() == $result['password']) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Register the admin in the database.
+     * @param Admin $admin Class Admin setters and getters.
+     * @return void
+     */
+    public function save(Admin $admin): void
+    {
+        $sql = "INSERT INTO admin (email, password) VALUES (:email, :password)";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':email' => $admin->getEmail(),
+            ':password' => $admin->getPassword()
+        ]);
     }
 
     /**
