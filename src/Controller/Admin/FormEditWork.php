@@ -24,7 +24,7 @@ class FormEditWork implements RequestHandlerInterface
             'title' => 'Edit Work Experience',
             'button' => 'Save',
             'action' => '/make-edit-work',
-            'row' => $repository->singleId($id)
+            'row' => $repository->searchWorkExperience($id)
         ]);
         return new Response(200, [], $html);
     }

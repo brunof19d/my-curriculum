@@ -27,7 +27,7 @@ class Admin implements RequestHandlerInterface
         $resultList = new PdoWorkRepository();
         $html = $this->render('admin/index.php', [
             'title' => 'Admin Page',
-            'query' => $resultList->allUsers()
+            'query' => $resultList->allWorksExperience()
         ]);
 
         return new Response(200, [], $html);

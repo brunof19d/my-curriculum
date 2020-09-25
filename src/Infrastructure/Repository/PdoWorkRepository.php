@@ -53,6 +53,9 @@ class PdoWorkRepository implements WorkRepository
         return $workList;
     }
 
+    /**
+     *  Returns from the database a single work experience received by the ID.
+     */
     public function searchWorkExperience(int $id): array
     {
         $sql = "SELECT * FROM work WHERE id = :id";
@@ -65,7 +68,7 @@ class PdoWorkRepository implements WorkRepository
     }
 
     /**
-     * Save
+     * Save work experience
      * @param Work $work Class Work setters and getters.
      * @return void
      */
@@ -87,7 +90,7 @@ class PdoWorkRepository implements WorkRepository
     }
 
     /**
-     * Update.
+     * Update work experience.
      * @param Work $work Class Work setters and getters.
      * @return void
      */
@@ -113,7 +116,7 @@ class PdoWorkRepository implements WorkRepository
     }
 
     /**
-     * Delete admin in Database.
+     * Delete work experience in Database.
      * @param Work $work Class Admin setters and getters.
      * @return void
      */
