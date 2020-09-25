@@ -33,6 +33,7 @@ return [
     '/add-work' => \App\Controller\Admin\AddWork::class,
     '/edit-work' => FormEditWork::class,
     '/make-edit-work' => EditWork::class,
+    '/delete-work' => \App\Controller\Admin\DeleteWork::class,
 
 
     // Edit pages in admin area

@@ -23,7 +23,7 @@
             <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
                 <div class="d-flex align-items-center">
                     <a href="/edit-work?edit=<?= $work->getId(); ?>" class="btn btn-dark btn-sm ml-1">Edit</a>
-                    <a href="/edit-work" class="btn btn-danger btn-sm ml-1">Delete</a>
+                    <a href="/delete-work?id=<?= $work->getId(); ?>" class="btn btn-danger btn-sm ml-1">Delete</a>
                 </div>
             <?php endif; ?>
 
