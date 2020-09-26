@@ -18,21 +18,62 @@ class AddWork implements RequestHandlerInterface
 
     private Work $work;
     private PdoWorkRepository $repository;
+    private Persist $persist;
 
     public function __construct()
     {
         $this->work = new Work();
         $this->repository = new PdoWorkRepository();
+        $this->persist = new Persist();
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $title_job = $_POST['title_job'];
-        $date_begin = $_POST['date_begin'];
-        $date_end = $_POST['date_end'];
-        $current = $_POST['current'];
-        $description = $_POST['description'];
+        // Redirect Form Edit ID
+        $redirectPage = new Response(302, ['Location' => '/add-work-page']);
 
+        // Check Title
+        $title_job = $this->persist->filterString($_POST['title_job'], 'Your job title field is empty');
+        if ($title_job == FALSE) {
+            return $redirectPage;
+        }
+
+        // Check Date Begin
+        $date_begin = $_POST['date_begin'];
+        $resultFilter = $this->persist->filterString($date_begin, 'Date field incorrect');
+        if ($resultFilter == FALSE ) {
+            return $redirectPage;
+        }
+        $resultFilter = $this->persist->filterDate($date_begin);
+        if ( $resultFilter == FALSE ) {
+            return $redirectPage;
+        }
+
+        // Check Date Begin
+        $date_end = $_POST['date_end'];
+        $resultFilter = $this->persist->filterString($date_end, 'Date field incorrect');
+        if ($resultFilter == FALSE ) {
+            return $redirectPage;
+        }
+        $resultFilter = $this->persist->filterDate($date_end);
+        if ( $resultFilter == FALSE ) {
+            return $redirectPage;
+        }
+
+        // Check Current Job
+        if (array_key_exists('current', $_POST)) {
+            $current = 1;
+        } else {
+            $current = 0;
+        }
+
+        // Check Description
+        $description = $this->persist->filterString($_POST['description'], 'Your job description field is empty');
+        if ($description == FALSE) {
+            return $redirectPage;
+        }
+
+        // Setters
         $this->work->setTitleJob($title_job);
         $this->work->setDataBegin($date_begin);
         $this->work->setDataEnd($date_end);

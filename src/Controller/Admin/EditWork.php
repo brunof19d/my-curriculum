@@ -43,8 +43,28 @@ class EditWork implements RequestHandlerInterface
         if ($title_job == FALSE) {
             return $redirectPage;
         }
+
+        // Check Date Begin
         $date_begin = $_POST['date_begin'];
+        $resultFilter = $this->persist->filterString($date_begin, 'Date field incorrect');
+        if ($resultFilter == FALSE ) {
+            return $redirectPage;
+        }
+        $resultFilter = $this->persist->filterDate($date_begin);
+        if ( $resultFilter == FALSE ) {
+            return $redirectPage;
+        }
+
+        // Check Date Begin
         $date_end = $_POST['date_end'];
+        $resultFilter = $this->persist->filterString($date_end, 'Date field incorrect');
+        if ($resultFilter == FALSE ) {
+            return $redirectPage;
+        }
+        $resultFilter = $this->persist->filterDate($date_end);
+        if ( $resultFilter == FALSE ) {
+            return $redirectPage;
+        }
 
         // Check Current Job
         if (array_key_exists('current', $_POST)) {

@@ -57,4 +57,17 @@ class Persist
         }
         return $validString;
     }
+
+    public function filterDate(string $date): string
+    {
+        // Format for Database yyyy/mm/dd
+        $defaultDate = '/^[0-9]{4}\-[0-9]{1,2}\-[0-9]{1,2}$/';
+        $resultDate = preg_match($defaultDate, $date);
+
+        if (!$resultDate) {
+            $this->defineMessage('danger', 'Date invalid.');
+            return false;
+        }
+        return $resultDate;
+    }
 }
