@@ -14,17 +14,27 @@ use Psr\Http\Server\RequestHandlerInterface;
 class FormEditWork implements RequestHandlerInterface
 {
     use RenderHtml;
+    private PdoWorkRepository $repository;
+    private Persist $persist;
+
+    public function __construct()
+    {
+        $this->persist = new Persist();
+        $this->repository = new PdoWorkRepository();
+    }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $id = $_GET['edit'];
-        $repository = new PdoWorkRepository();
+        $id = $this->persist->filterId($_GET['edit']);
+        if ( $id == FALSE) {
+            return new Response(302, ['Location' => '/admin']);
+        }
 
         $html = $this->render('admin/form-work.php', [
             'title' => 'Edit Work Experience',
             'button' => 'Save',
             'action' => '/make-edit-work',
-            'row' => $repository->searchWorkExperience($id)
+            'row' => $this->repository->searchWorkExperience($id)
         ]);
         return new Response(200, [], $html);
     }

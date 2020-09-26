@@ -32,13 +32,29 @@ class Persist
         return $validaPassword;
     }
 
-    public function filterId(int $id): int
+    public function filterId($id): int
     {
         $validId = filter_var($id, FILTER_VALIDATE_INT);
 
-        if (is_null($validId) || $validId == false) {
+        if (is_null($validId) || $validId == false or $validId <= 0) {
             $this->defineMessage('danger', 'ID invalid.');
+            return false;
         }
         return $validId;
+    }
+
+    /**
+     * Filter string receive and send message of error
+     * @param string $input $_POST receive
+     * @param string $message Message for error
+     * @return string
+     */
+    public function filterString(string $input, string $message): string
+    {
+        $validString = filter_var($input, FILTER_SANITIZE_STRING,FILTER_FLAG_NO_ENCODE_QUOTES);
+        if (is_null($validString) || $validString == false) {
+            $this->defineMessage('danger', $message);
+        }
+        return $validString;
     }
 }

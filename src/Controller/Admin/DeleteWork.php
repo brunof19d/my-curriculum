@@ -19,21 +19,28 @@ class DeleteWork implements RequestHandlerInterface
 
     private Work $work;
     private PdoWorkRepository $repository;
+    private Persist $persist;
 
     public function __construct()
     {
         $this->work = new Work();
         $this->repository = new PdoWorkRepository();
+        $this->persist = new Persist();
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $redirectLogin = new Response(302, ['Location' => '/admin']);
+
         $id = $_GET['id'];
+        $filter = $this->persist->filterId($id);
+        if ($filter == FALSE) {
+            return $redirectLogin;
+        }
 
         $this->work->setId($id);
         $this->repository->remove($this->work);
-        $this->defineMessage('success', 'Admin is remove with success.');
+        $this->defineMessage('success', 'Data remove with success');
         return $redirectLogin;
     }
 }

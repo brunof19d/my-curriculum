@@ -6,7 +6,7 @@
         <div class="edit-basic mt-3">
             <h4 class="text-center">Work Experience</h4>
             <hr>
-
+            <?php require_once __DIR__ . '/../../includes/alert.php'; ?>
             <!--  Title Job Name -->
             <div class="form-group">
                 <label class="font-italic">Title name job</label>
@@ -29,9 +29,7 @@
                 <!--  Check Current -->
                 <div class="form-check-inline ml-2 mt-3">
                     <label class="form-check-label font-italic">Current</label>
-                    <input name="current" type="checkbox" class="form-check-input ml-2" value="<?= isset($row) ? $row['current'] : '1'; ?>"
-                        <?= isset($row) ? $row['current'] == 1 ? 'checked' : '' : '' ?>
-                    />
+                    <input name="current" type="checkbox" class="form-check-input ml-2" value="1" <?= isset($row) ? ($row['current'] == 1) ? 'checked' : '' : '';  ?>/>
                 </div>
             </div>
             <hr>

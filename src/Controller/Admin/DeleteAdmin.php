@@ -29,12 +29,13 @@ class DeleteAdmin implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $redirectLogin = new Response(302, ['Location' => '/register']);
+
         $id = $_GET['id'];
         $result = $this->persist->filterId($id);
-
         if ($result == false) {
             return $redirectLogin;
         }
+
         $this->admin->setId($id);
         $this->repository->remove($this->admin);
         $this->defineMessage('success', 'Admin is remove with success.');

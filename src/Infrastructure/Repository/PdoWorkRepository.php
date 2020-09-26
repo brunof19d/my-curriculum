@@ -55,6 +55,8 @@ class PdoWorkRepository implements WorkRepository
 
     /**
      *  Returns from the database a single work experience received by the ID.
+     * @param int $id   ID receive from USER
+     * @return array
      */
     public function searchWorkExperience(int $id): array
     {

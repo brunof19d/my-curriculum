@@ -19,7 +19,7 @@ class Main implements RequestHandlerInterface
         $resultList = new PdoWorkRepository();
         $html = $this->render('home/index.php', [
             'title' => 'Home',
-            'query' => $resultList->allUsers()
+            'query' => $resultList->allWorksExperience()
 
         ]);
         return new Response(200, [], $html);
