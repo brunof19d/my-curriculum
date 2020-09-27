@@ -25,6 +25,7 @@ class FormEditWork implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+
         $id = $this->persist->filterId($_GET['edit']);
         if ( $id == FALSE) {
             return new Response(302, ['Location' => '/admin']);
@@ -33,7 +34,6 @@ class FormEditWork implements RequestHandlerInterface
         $html = $this->render('admin/form-work.php', [
             'title' => 'Edit Work Experience',
             'button' => 'Save',
-            'action' => '/make-edit-work',
             'row' => $this->repository->searchWorkExperience($id)
         ]);
         return new Response(200, [], $html);

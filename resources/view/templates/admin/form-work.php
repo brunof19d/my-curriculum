@@ -1,7 +1,7 @@
 <?php require_once __DIR__ . '/../../includes/header-admin.php'; ?>
 
 <div class="container border bg-light mt-4">
-    <form method="post" action="<?= $action; ?>">
+    <form method="post" action="/controller-work">
         <input type="hidden" name="id" value="<?= isset($row) ? $row['id'] : '' ; ?>" />
         <div class="edit-basic mt-3">
             <h4 class="text-center">Work Experience</h4>

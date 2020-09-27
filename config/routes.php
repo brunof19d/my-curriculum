@@ -1,8 +1,10 @@
 <?php
 
 use App\Controller\Admin\Admin;
+use App\Controller\Admin\ControllerWork;
 use App\Controller\Admin\DeleteAdmin;
-use App\Controller\Admin\EditWork;
+use App\Controller\Admin\DeleteWork;
+use App\Controller\Admin\FormAddWork;
 use App\Controller\Admin\FormEditPersonalData;
 use App\Controller\Admin\FormEditWork;
 use App\Controller\Admin\Logout;
@@ -13,7 +15,8 @@ use App\Controller\Admin\FormLogin;
 use App\Controller\Admin\MakeLogin;
 
 
-return [
+return array(
+
     //Home
     '/home' => Main::class,
 
@@ -29,15 +32,13 @@ return [
     '/delete-admin' => DeleteAdmin::class,
 
     // Work Experience section
-    '/add-work-page' => \App\Controller\Admin\FormAddWork::class,
-    '/add-work' => \App\Controller\Admin\AddWork::class,
+    '/add-work-page' => FormAddWork::class,
     '/edit-work' => FormEditWork::class,
-    '/make-edit-work' => EditWork::class,
-    '/delete-work' => \App\Controller\Admin\DeleteWork::class,
-
+    '/controller-work' => ControllerWork::class,
+    '/delete-work' => DeleteWork::class,
 
     // Edit pages in admin area
     '/edit-personal-data' => FormEditPersonalData::class,
 
-];
+);
 

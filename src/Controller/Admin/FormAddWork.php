@@ -18,8 +18,7 @@ class FormAddWork implements RequestHandlerInterface
     {
         $html = $this->render('admin/form-work.php', [
             'title' => 'Add Work Experience',
-            'button' => 'Create',
-            'action' => '/add-work'
+            'button' => 'Create'
         ]);
         return new Response(200, [], $html);
     }
