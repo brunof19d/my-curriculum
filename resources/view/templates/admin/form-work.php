@@ -5,14 +5,20 @@
         <input type="hidden" name="id" value="<?= isset($row) ? $row['id'] : '' ; ?>" />
         <div class="edit-basic mt-3">
             <h4 class="text-center">Work Experience</h4>
-            <hr>
+
             <?php require_once __DIR__ . '/../../includes/alert.php'; ?>
             <!--  Title Job Name -->
             <div class="form-group">
                 <label class="font-italic">Title name job</label>
                 <input name="title_job" type="text" class="form-control" value="<?= isset($row) ? $row['title_job'] : ''; ?>">
             </div>
-            <hr>
+            <!--  Company  -->
+            <div class="form-group">
+                <label class="font-italic">Company Name</label>
+                <input name="company_name" type="text" class="form-control" value="<?= isset($row) ? $row['company_name'] : ''; ?>">
+            </div>
+
+
 
             <!--  Dates Jobs-->
             <div class="d-flex justify-content-center align-items-center mt-3">
@@ -32,7 +38,7 @@
                     <input name="current" type="checkbox" class="form-check-input ml-2" value="1" <?= isset($row) ? ($row['current'] == 1) ? 'checked' : '' : '';  ?>/>
                 </div>
             </div>
-            <hr>
+
 
             <!--  Description -->
             <div class="form-group">

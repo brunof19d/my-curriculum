@@ -8,6 +8,7 @@ class Work
 {
     private $id;
     private $titleJob;
+    private $companyName;
     private $dataBegin;
     private $dataEnd;
     private $current;
@@ -31,6 +32,16 @@ class Work
     public function getTitleJob()
     {
         return $this->titleJob;
+    }
+
+    public function setCompanyName($companyName)
+    {
+        $this->companyName = $companyName;
+    }
+
+    public function getCompanyName()
+    {
+        return $this->companyName;
     }
 
     public function setDataBegin($dataBegin)

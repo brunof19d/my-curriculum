@@ -44,6 +44,7 @@ class PdoWorkRepository implements WorkRepository
             $workData = new Work();
             $workData->setId($row['id']);
             $workData->setTitleJob($row['title_job']);
+            $workData->setCompanyName($row['company_name']);
             $workData->setDataBegin($row['data_begin']);
             $workData->setDataEnd($row['data_end']);
             $workData->setCurrent($row['current']);
@@ -77,13 +78,14 @@ class PdoWorkRepository implements WorkRepository
     public function save(Work $work): void
     {
         $sql = "INSERT INTO work 
-            (title_job, data_begin, data_end, current, description)
+            (title_job, company_name, data_begin, data_end, current, description)
             VALUES
-            (:title_job, :data_begin, :data_end, :current, :description)
+            (:title_job, :company_name, :data_begin, :data_end, :current, :description)
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ':title_job' => $work->getTitleJob(),
+            ':company_name' => $work->getCompanyName(),
             ':data_begin' => $work->getDataBegin(),
             ':data_end' => $work->getDataEnd(),
             ':current' => $work->getCurrent(),
@@ -100,6 +102,7 @@ class PdoWorkRepository implements WorkRepository
     {
         $sql = "UPDATE work SET 
             title_job = :title_job, 
+            company_name = :company_name,
             data_begin = :data_begin, 
             data_end = :data_end, 
             current = :current,
@@ -109,6 +112,7 @@ class PdoWorkRepository implements WorkRepository
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':title_job', $work->getTitleJob(), PDO::PARAM_STR);
+        $stmt->bindValue(':company_name', $work->getCompanyName(), PDO::PARAM_STR);
         $stmt->bindValue(':data_begin', $work->getDataBegin());
         $stmt->bindValue(':data_end', $work->getDataEnd());
         $stmt->bindValue(':current', $work->getCurrent());

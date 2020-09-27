@@ -47,6 +47,13 @@ class ControllerWork implements RequestHandlerInterface
             return $pageRedirect;
         }
 
+        // Check Company Name
+        $company = $this->persist->filterString($_POST['company_name'], 'Your field company name is empty');
+
+        if ($company == FALSE) {
+            return $pageRedirect;
+        }
+
         // Check Date Begin
         $date_begin = $_POST['date_begin'];
         $resultFilter = $this->persist->filterString($date_begin, 'Date field incorrect');
@@ -84,6 +91,7 @@ class ControllerWork implements RequestHandlerInterface
 
         // Setters
         $this->work->setTitleJob($title_job);
+        $this->work->setCompanyName($company);
         $this->work->setDataBegin($date_begin);
         $this->work->setDataEnd($date_end);
         $this->work->setCurrent($current);

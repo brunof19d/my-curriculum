@@ -12,7 +12,7 @@
         <?php foreach ($query as $work): ?>
 
             <!-- Title Job -->
-            <p><strong><?= $work->getTitleJob(); ?></strong></p>
+            <p><strong><?= $work->getTitleJob(); ?> / <?= $work->getCompanyName(); ?></strong></p>
 
             <!-- Dates Section Begin -->
                 <i class="far fa-calendar-alt"></i>
