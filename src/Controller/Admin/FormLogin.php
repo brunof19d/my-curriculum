@@ -18,8 +18,9 @@ class FormLogin implements RequestHandlerInterface
     {
         $html = $this->render('admin/form.php', [
             'title' => 'Login Admin',
+            'attributeInput' => 'login',
             'button' => 'Login',
-            'action' => '/make-login'
+            'action' => '/controller-admin'
         ]);
         return new Response(200, [], $html);
     }

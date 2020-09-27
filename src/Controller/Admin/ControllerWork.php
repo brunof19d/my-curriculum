@@ -99,5 +99,6 @@ class ControllerWork implements RequestHandlerInterface
             $this->repository->save($this->work);
             $this->defineMessage('success', 'Work experience added with success');
             return new Response(302, ['Location' => '/admin']);
-        }    }
+        }
+    }
 }

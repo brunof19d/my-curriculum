@@ -1,6 +1,7 @@
 <?php
 
 use App\Controller\Admin\Admin;
+use App\Controller\Admin\ControllerAdmin;
 use App\Controller\Admin\ControllerWork;
 use App\Controller\Admin\DeleteAdmin;
 use App\Controller\Admin\DeleteWork;
@@ -9,10 +10,10 @@ use App\Controller\Admin\FormEditPersonalData;
 use App\Controller\Admin\FormEditWork;
 use App\Controller\Admin\Logout;
 use App\Controller\Admin\FormRegister;
-use App\Controller\Admin\RegisterAdmin;
+
 use App\Controller\Main;
 use App\Controller\Admin\FormLogin;
-use App\Controller\Admin\MakeLogin;
+
 
 
 return array(
@@ -20,15 +21,12 @@ return array(
     //Home
     '/home' => Main::class,
 
-    // Login Area
+    // Admin Area
     '/login' => FormLogin::class,
-    '/make-login' => MakeLogin::class,
-    '/logout' => Logout::class,
-
-    // Administrator Users
-    '/admin' => Admin::class,
     '/register' => FormRegister::class,
-    '/save-admin' => RegisterAdmin::class,
+    '/admin' => Admin::class,
+    '/logout' => Logout::class,
+    '/controller-admin' => ControllerAdmin::class,
     '/delete-admin' => DeleteAdmin::class,
 
     // Work Experience section
@@ -39,6 +37,8 @@ return array(
 
     // Edit pages in admin area
     '/edit-personal-data' => FormEditPersonalData::class,
+
+
 
 );
 

@@ -23,8 +23,9 @@
             </div>
             <!-- Input Button -->
             <div class="form-group">
-                <?php /** @var \App\Helper\RenderHtml $button */ ?>
-                <button class="btn btn-dark btn-lg"><?= $button; ?></button>
+                <?php /** @var \App\Controller\Admin\FormLogin $button */ ?>
+                <?php /** @var \App\Controller\Admin\FormLogin $attributeInput */ ?>
+                <button name="<?= $attributeInput ?>" class="btn btn-dark btn-lg"><?= $button; ?></button>
             </div>
         </div>
     </form>

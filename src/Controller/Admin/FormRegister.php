@@ -21,8 +21,9 @@ class FormRegister implements RequestHandlerInterface
 
         $html = $this->render('admin/form.php', [
             'title' => 'Register Admin',
+            'attributeInput' => 'register',
             'button' => 'Register',
-            'action' => '/save-admin',
+            'action' => '/controller-admin',
             'query' => $resultList->allUsers()
         ]);
         return new Response(200, [], $html);
