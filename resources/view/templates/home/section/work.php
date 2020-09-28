@@ -5,7 +5,9 @@
         <p class="title-main">
             <i class="fas fa-briefcase"></i>
             <strong>Work Experience</strong>
-            <a href="/add-work-page" class="btn btn-success btn-sm ml-1">Add</a>
+            <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
+                <a href="/add-work-page" class="btn btn-success btn-sm ml-1">Add</a>
+            <?php endif; ?>
         </p>
 
         <?php /** @var \App\Entity\Model\Admin $query */ ?>
@@ -15,18 +17,22 @@
             <p><strong><?= $work->getTitleJob(); ?> / <?= $work->getCompanyName(); ?></strong></p>
 
             <!-- Dates Section Begin -->
-                <i class="far fa-calendar-alt"></i>
-                <?php
-                    $dateDatabase = $work->getDataBegin();
-                    $date = new DateTime($dateDatabase);
-                    echo $date->format('M Y');
-                ?>
-                <span class="ml-1 mr-1">-</span>
-                <?php
-                    $dateDatabase = $work->getDataEnd();
-                    $date = new DateTime($dateDatabase);
-                    echo $date->format('M Y');
-                ?>
+            <i class="far fa-calendar-alt"></i>
+            <?php
+            $dateDatabase = $work->getDataBegin();
+            $date = new DateTime($dateDatabase);
+            echo $date->format('M Y');
+            ?>
+            <span class="ml-1 mr-1">-</span>
+            <?php
+            if ($work->getCurrent() == 1) {
+                echo 'Current';
+            } else {
+                $dateDatabase = $work->getDataEnd();
+                $date = new DateTime($dateDatabase);
+                echo $date->format('M Y');
+            }
+            ?>
             <!-- Dates Section End -->
 
             <!-- Description -->

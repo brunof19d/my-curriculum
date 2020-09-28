@@ -6,20 +6,20 @@ namespace App\Entity\Model;
 
 class Work
 {
-    private $id;
-    private $titleJob;
-    private $companyName;
-    private $dataBegin;
-    private $dataEnd;
-    private $current;
-    private $description;
+    private int $id;
+    private string $titleJob;
+    private string $companyName;
+    private string $dataBegin;
+    private string $dataEnd;
+    private string $current;
+    private string $description;
 
     public function setId($id)
     {
         $this->id = $id;
     }
 
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -29,7 +29,7 @@ class Work
         $this->titleJob = $titleJob;
     }
 
-    public function getTitleJob()
+    public function getTitleJob(): string
     {
         return $this->titleJob;
     }
@@ -39,7 +39,7 @@ class Work
         $this->companyName = $companyName;
     }
 
-    public function getCompanyName()
+    public function getCompanyName(): string
     {
         return $this->companyName;
     }
@@ -49,7 +49,7 @@ class Work
         $this->dataBegin = $dataBegin;
     }
 
-    public function getDataBegin()
+    public function getDataBegin(): string
     {
         return $this->dataBegin;
     }
@@ -59,7 +59,7 @@ class Work
         $this->dataEnd = $dataEnd;
     }
 
-    public function getDataEnd()
+    public function getDataEnd(): string
     {
         return $this->dataEnd;
     }
@@ -69,7 +69,7 @@ class Work
         $this->current = $current;
     }
 
-    public function getCurrent()
+    public function getCurrent(): string
     {
         return $this->current;
     }
@@ -79,7 +79,7 @@ class Work
         $this->description = $description;
     }
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }

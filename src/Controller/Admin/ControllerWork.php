@@ -43,51 +43,40 @@ class ControllerWork implements RequestHandlerInterface
 
         // Check Title
         $title_job = $this->persist->filterString($_POST['title_job'], 'Your job title field is empty');
-        if ($title_job == FALSE) {
-            return $pageRedirect;
-        }
+        if (!$title_job) return $pageRedirect;
 
         // Check Company Name
         $company = $this->persist->filterString($_POST['company_name'], 'Your field company name is empty');
-
-        if ($company == FALSE) {
-            return $pageRedirect;
-        }
+        if (!$company) return $pageRedirect;
 
         // Check Date Begin
         $date_begin = $_POST['date_begin'];
         $resultFilter = $this->persist->filterString($date_begin, 'Date field incorrect');
-        if ($resultFilter == FALSE) {
-            return $pageRedirect;
-        }
+        if ($resultFilter == FALSE) return $pageRedirect;
+
         $resultFilter = $this->persist->filterDate($date_begin);
-        if ($resultFilter == FALSE) {
-            return $pageRedirect;
-        }
+        if (!$resultFilter) return $pageRedirect;
 
-        // Check Date Begin
-        $date_end = $_POST['date_end'];
-        $resultFilter = $this->persist->filterString($date_end, 'Date field incorrect');
-        if ($resultFilter == FALSE) {
-            return $pageRedirect;
-        }
-        $resultFilter = $this->persist->filterDate($date_end);
-        if ($resultFilter == FALSE) {
-            return $pageRedirect;
-        }
-
-        // Check Current Job
+        // Check Current Job & Data End
         if (array_key_exists('current', $_POST)) {
-            $current = 1;
+            $current = 1; // Default value for checked input.
+            $date_end = '2000-01-01'; // Default String or change database for NULL.
         } else {
-            $current = 0;
+            $current = 0; // Value for checked input.
+            if (array_key_exists('date_end', $_POST)) {
+                $date_end = $_POST['date_end'];
+
+                $resultFilter = $this->persist->filterString($date_end, 'Date field incorrect');
+                if (!$resultFilter) return $pageRedirect;
+
+                $resultFilter = $this->persist->filterDate($date_end);
+                if (!$resultFilter) return $pageRedirect;
+            }
         }
 
         // Check Description
         $description = $this->persist->filterString($_POST['description'], 'Your job description field is empty');
-        if ($description == FALSE) {
-            return $pageRedirect;
-        }
+        if (!$description) return $pageRedirect;
 
         // Setters
         $this->work->setTitleJob($title_job);
