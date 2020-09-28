@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Helper\FlashMessageTrait;
 use App\Helper\RenderHtml;
+use App\Infrastructure\Repository\PdoEducationRepository;
 use App\Infrastructure\Repository\PdoWorkRepository;
 use DateTime;
 use Nyholm\Psr7\Response;
@@ -26,9 +27,11 @@ class Admin implements RequestHandlerInterface
         }
 
         $resultList = new PdoWorkRepository();
+        $resultListEducation = new PdoEducationRepository();
         $html = $this->render('admin/index.php', [
             'title' => 'Admin Page',
-            'query' => $resultList->allWorksExperience()
+            'query' => $resultList->allWorksExperience(),
+            'queryEducation' => $resultListEducation->allEducation()
         ]);
 
         return new Response(200, [], $html);

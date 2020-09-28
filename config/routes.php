@@ -2,10 +2,14 @@
 
 use App\Controller\Admin\Admin;
 use App\Controller\Admin\ControllerAdmin;
+use App\Controller\Admin\ControllerEducation;
 use App\Controller\Admin\ControllerWork;
 use App\Controller\Admin\DeleteAdmin;
+use App\Controller\Admin\DeleteEducation;
 use App\Controller\Admin\DeleteWork;
+use App\Controller\Admin\FormAddEducation;
 use App\Controller\Admin\FormAddWork;
+use App\Controller\Admin\FormEditEducation;
 use App\Controller\Admin\FormEditPersonalData;
 use App\Controller\Admin\FormEditWork;
 use App\Controller\Admin\Logout;
@@ -34,6 +38,13 @@ return array(
     '/edit-work' => FormEditWork::class,
     '/controller-work' => ControllerWork::class,
     '/delete-work' => DeleteWork::class,
+
+    // Education section
+    '/add-education' => FormAddEducation::class,
+    '/edit-education' => FormEditEducation::class,
+    '/controller-education' => ControllerEducation::class,
+    '/delete-education' => DeleteEducation::class,
+
 
     // Edit pages in admin area
     '/edit-personal-data' => FormEditPersonalData::class,
