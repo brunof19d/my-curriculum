@@ -48,8 +48,7 @@ return array(
 
     // Edit pages in admin area
     '/edit-personal-data' => FormEditPersonalData::class,
-
-
+    '/controller-personal-data' => \App\Controller\Admin\ControllerPersonalData::class
 
 );
 
