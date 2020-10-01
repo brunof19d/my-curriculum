@@ -4,7 +4,9 @@
 namespace App\Controller\Admin;
 
 
+use App\Entity\Model\PersonalData;
 use App\Helper\FlashMessageTrait;
+use App\Infrastructure\Repository\PdoPersonalDataRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -13,26 +15,38 @@ use Psr\Http\Server\RequestHandlerInterface;
 class ControllerPersonalData implements RequestHandlerInterface
 {
     use FlashMessageTrait;
+    private PersonalData $personalData;
+    private PdoPersonalDataRepository $repository;
+    private Persist $persist;
+
+    public function __construct()
+    {
+        $this->personalData = new PersonalData();
+        $this->repository = new PdoPersonalDataRepository();
+        $this->persist = new Persist();
+    }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $photoProfile = $_FILES['photo_profile']; // Receives the user's file.
-        $extensionPermission = ['png', 'jpg', 'jpeg']; // Put all allowed extensions in an Array.
-        $extension = strtolower ( pathinfo ( $photoProfile['name'], PATHINFO_EXTENSION ) ); // Put the string in Lowercase, Access the file information and return its extension.
+        $id = $_POST['id'];
 
-        // Check if extension is compatible.
-        if ( !in_array($extension, $extensionPermission) ) {
-            $this->defineMessage('danger', 'File with incompatible extension');
-            return new Response(302, ['Location' => '/edit-personal-data']);
+        $photo = $_FILES['photo_profile']; // Receives data from a form file.
+        // Check if there is a new photo to save.
+        if (!empty($photo['name'] && $photo['type'] && $photo['tmp_name'])) {
+            $photoName = $this->persist->verifyImage($photo); // Handles the file.
+            if (!$photoName) return new Response(200, ['Location' => '/edit-personal-data']);
+
+            $upload = $this->persist->uploadImage($photo, $photoName); // Make upload.
+            if (!$upload) return new Response(200, ['Location' => '/edit-personal-data']);
+        } else {
+            $photoName = $_POST['photo_current']; // If you don't have a new photo, take the current photo from the input hidden.
         }
 
-        // uniqid() - This function does not generate cryptographically secure values, and should not be used for cryptographic purposes.
-        $newNamePhoto = uniqid('', true) . ".$extension"; // Put a new name on the photo for security.
+        $this->personalData->setId($id);
+        $this->personalData->setImage($photoName);
 
-        $pathDirectory = $_SERVER['DOCUMENT_ROOT'] . '/img/';
-        $pathFile = $pathDirectory . $newNamePhoto;
-        move_uploaded_file( $photoProfile['tmp_name'], $pathFile );
         $this->defineMessage('success', 'Photo successfully saved');
+        $this->repository->update($this->personalData);
         return new Response(200, ['Location' => '/admin']);
     }
 }

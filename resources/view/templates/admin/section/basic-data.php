@@ -2,10 +2,14 @@
 
     <h4 class="text-center">Basic Data</h4>
 
+    <?php /** @var FormEditPersonalData $row */ ?>
+    <input name="id" type="hidden" value="<?= $row['id']; ?>">
+
     <!-- Photo -->
     <div class="form-group">
         <label>Photo Profile</label>
-        <input name="photo_profile" type="file" class="form-control-file"">
+        <input name="photo_profile" type="file" class="form-control-file">
+        <input type="hidden" name="photo_current" value="<?= $row['photo']; ?>">
     </div>
 
     <!--  Label Name  -->
