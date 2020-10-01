@@ -15,7 +15,7 @@
     <!--  Label Name  -->
     <div class="form-group">
         <label>Name:</label>
-        <input type="text" class="form-control">
+        <input name="name" type="text" class="form-control" value="<?= $row['name']; ?>">
     </div>
 
     <div class="form-row">
@@ -23,18 +23,18 @@
         <!--  Profession -->
         <div class="form-group col-md-6">
             <label>Profession:</label>
-            <input type="text" class="form-control w-75">
-            <small id="emailHelp" class="form-text text-muted">Example: Web Developer.</small>
+            <input name="profession" type="text" class="form-control w-75" value="<?= $row['job']; ?>">
+            <small class="form-text text-muted">Example: Web Developer.</small>
         </div>
 
         <!--  City and Country -->
         <div class="form-group col-md-3">
             <label>City:</label>
-            <input type="text" class="form-control w-75">
+            <input name="city" type="text" class="form-control w-75" value="<?= $row['city']; ?>">
         </div>
         <div class="form-group col-md-3">
             <label>Country:</label>
-            <input type="text" class="form-control w-75">
+            <input name="country" type="text" class="form-control w-75" value="<?= $row['country']; ?>">
         </div>
 
     </div>
@@ -43,15 +43,16 @@
         <!--  Email -->
         <div class="form-group col-md-6">
             <label>Email:</label>
-            <input type="text" class="form-control w-75">
+            <input name="email" type="email" class="form-control w-75" value="<?= $row['email']; ?>">
         </div>
 
         <!--  Phone -->
         <div class="form-group col-md-6">
             <label>Phone:</label>
-            <input type="text" class="form-control w-75">
-            <small id="emailHelp" class="form-text text-muted">Example: 315 999 999 999</small>
+            <input name="phone" type="text" class="form-control w-75" value="<?= $row['phone']; ?>">
+            <small class="form-text text-muted">Example: 315 999 999 999</small>
         </div>
+        
     </div>
 
     <hr>

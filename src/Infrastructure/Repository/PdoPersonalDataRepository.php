@@ -39,14 +39,26 @@ class PdoPersonalDataRepository implements PersonalDataRepository
     public function update(PersonalData $personalData): void
     {
         $sql = "UPDATE personal_data SET 
-            photo = :photo
+            photo = :photo,
+            name = :name,
+            job = :job,
+            city = :city,
+            country = :country,
+            email = :email,
+            phone = :phone
             WHERE
             id = :id
         ";
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
             ':id' => $personalData->getId(),
-            ':photo' => $personalData->getImage()
+            ':photo' => $personalData->getImage(),
+            ':name' => $personalData->getName(),
+            ':job' => $personalData->getProfession(),
+            ':city' => $personalData->getCity(),
+            ':country' => $personalData->getCountry(),
+            ':email' => $personalData->getEmail(),
+            ':phone' => $personalData->getPhone()
         ]);
     }
 }
