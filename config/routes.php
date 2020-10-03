@@ -45,10 +45,12 @@ return array(
     '/controller-education' => ControllerEducation::class,
     '/delete-education' => DeleteEducation::class,
 
-
     // Edit pages in admin area
     '/edit-personal-data' => FormEditPersonalData::class,
-    '/controller-personal-data' => \App\Controller\Admin\ControllerPersonalData::class
+    '/controller-personal-data' => \App\Controller\Admin\ControllerPersonalData::class,
+    '/edit-skills' => \App\Controller\Admin\FormEditSkills::class,
+    '/controller-skills' => \App\Controller\Admin\ControllerSkills::class,
+    '/add-skills' => \App\Controller\Admin\FormAddSkill::class
 
 );
 

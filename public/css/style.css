@@ -34,7 +34,7 @@ svg {
 .img-profile .text-img {
     position: absolute;
     top: 190px;
-    right: 230px;
+    left: 10px;
     font-size: 25px;
     color: black;
 }

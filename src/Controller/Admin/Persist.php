@@ -49,7 +49,7 @@ class Persist
      */
     public function filterString(string $input, string $message): string
     {
-        $validString = filter_var($input, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+        $validString = trim(filter_var($input, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
         if (is_null($validString) || $validString == false) {
             $this->defineMessage('danger', $message);
         }
