@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Form;
 
 
 use App\Helper\RenderHtml;
@@ -16,7 +16,7 @@ class FormLogin implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $html = $this->render('admin/form.php', [
+        $html = $this->render('admin/form-login-register.php', [
             'title' => 'Login Admin',
             'attributeInput' => 'login',
             'button' => 'Login',

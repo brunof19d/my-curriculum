@@ -1,7 +1,6 @@
 <?php require_once __DIR__ . '/../../includes/header-admin.php'; ?>
 
 <div class="container border bg-light">
-
     <form method="post" action="/controller-skills" class="mt-3">
 
         <?php require_once __DIR__ . '/../../includes/alert.php'; ?>
@@ -10,7 +9,9 @@
             <label>Category</label>
             <select name="category_skill" class="form-control">
                 <option value="1">Front-end</option>
+                <option value="4">Framework Front</option>
                 <option value="2">Back-end</option>
+                <option value="5">Framework Back</option>
                 <option value="3">Database</option>
             </select>
         </div>
@@ -23,7 +24,6 @@
         <hr><button type="submit" class="btn btn-success m-2">Save</button>
 
     </form>
-
 </div>
 
 <?php require_once __DIR__ . '/../../includes/footer.php'; ?>

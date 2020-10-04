@@ -11,7 +11,7 @@
         </p>
 
         <?php /** @var \App\Entity\Model\Admin $query */ ?>
-        <?php foreach ($query as $work): ?>
+        <?php foreach ($queryWork as $work): ?>
 
             <!-- Title Job -->
             <p><strong><?= $work->getTitleJob(); ?> / <?= $work->getCompanyName(); ?></strong></p>

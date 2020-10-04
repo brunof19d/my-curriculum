@@ -1,9 +1,10 @@
 <?php
 
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Form;
 
 
+use App\Controller\Admin\Persist;
 use App\Entity\Model\Education;
 use App\Helper\RenderHtml;
 use App\Infrastructure\Repository\PdoEducationRepository;
@@ -16,17 +17,10 @@ class FormEditEducation implements RequestHandlerInterface
 {
     use RenderHtml;
 
-    /**
-     * @var PdoEducationRepository
-     */
     private PdoEducationRepository $repository;
-    /**
-     * @var Education
-     */
+
     private Education $education;
-    /**
-     * @var Persist
-     */
+
     private Persist $persist;
 
     public function __construct()

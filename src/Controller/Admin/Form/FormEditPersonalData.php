@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Form;
 
 
 use App\Helper\RenderHtml;
@@ -20,7 +20,7 @@ class FormEditPersonalData implements RequestHandlerInterface
         $result = new PdoPersonalDataRepository();
         $id = 1; // Default (1), because there will always be only one row in the personal data table.
 
-        $html = $this->render('admin/edit-personal-data.php', [
+        $html = $this->render('admin/form-edit-personal-data.php', [
             'title' => 'Edit Personal Data',
             'row' => $result->getData($id)
         ]);

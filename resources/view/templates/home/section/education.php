@@ -1,24 +1,16 @@
 <div class="border mt-3 shadow">
     <div class="m-2">
-
-        <p class="title-main">
-            <i class="fas fa-university"></i>
-            <strong>Education</strong>
-            <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
-                <a href="/add-education" class="btn btn-success btn-sm ml-1">Add</a>
-            <?php endif; ?>
+        <p class="title-main"><i class="fas fa-university"></i><strong>Education</strong>
+            <?php \App\Helper\ButtonAdmin::addButton('/add-education'); ?>
         </p>
 
-        <?php /** @var Admin | Main $queryEducation */ ?>
         <?php foreach ($queryEducation as $education): ?>
 
             <!-- Name College -->
             <p><strong><?= $education->getCollegeName(); ?></strong></p>
 
-
             <!-- Dates -->
-            <p>
-                <i class="far fa-calendar-alt"></i>
+            <p><i class="far fa-calendar-alt"></i>
                 <strong>
                     <?php
                     $dateBeginDB = $education->getDataBegin();

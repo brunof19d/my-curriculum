@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Form;
 
 
 use App\Helper\RenderHtml;
@@ -19,7 +19,7 @@ class FormRegister implements RequestHandlerInterface
     {
         $resultList = new PdoAdminRepository();
 
-        $html = $this->render('admin/form.php', [
+        $html = $this->render('admin/form-login-register.php', [
             'title' => 'Register Admin',
             'attributeInput' => 'register',
             'button' => 'Register',

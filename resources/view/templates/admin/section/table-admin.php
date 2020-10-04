@@ -7,7 +7,7 @@
     </tr>
     </thead>
     <tbody>
-    <?php /** @var \App\Controller\Admin\FormRegister $query */ ?>
+    <?php /** @var \App\Controller\Admin\Form\Form\Form\Form\Form\Form\Form\Form\Form\FormRegister $query */ ?>
     <?php foreach ($query as $user): ?>
         <tr>
             <th><?= $user->getId(); ?></th>

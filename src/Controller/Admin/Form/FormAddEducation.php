@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Form;
 
 
 use App\Helper\RenderHtml;
