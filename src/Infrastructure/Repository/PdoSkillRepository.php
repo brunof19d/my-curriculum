@@ -5,10 +5,11 @@ namespace App\Infrastructure\Repository;
 
 
 use App\Entity\Model\Skill;
+use App\Entity\Repository\SkillRepository;
 use App\Infrastructure\Persistence\Database;
 use PDO;
 
-class PdoSkillRepository
+class PdoSkillRepository implements SkillRepository
 {
     private PDO $pdo;
 
@@ -33,5 +34,13 @@ class PdoSkillRepository
            ':category_id' => $skill->getCategory(),
            ':name_skill' => $skill->getNameSkill()
         ]);
+    }
+
+    public function remove(Skill $skill)
+    {
+        $sql = "DELETE FROM skills WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $skill->getId(), PDO::PARAM_INT);
+        $stmt->execute();
     }
 }
