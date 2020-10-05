@@ -12,6 +12,7 @@ use App\Controller\Admin\DeleteEducation;
 use App\Controller\Admin\DeleteSkills;
 use App\Controller\Admin\DeleteWork;
 use App\Controller\Admin\Form\FormAddEducation;
+use App\Controller\Admin\Form\FormAddLanguage;
 use App\Controller\Admin\Form\FormAddSkill;
 use App\Controller\Admin\Form\FormAddWork;
 use App\Controller\Admin\Form\FormEditEducation;
@@ -56,7 +57,12 @@ return [
     '/add-skills' => FormAddSkill::class,
     '/edit-skills' => FormEditSkills::class,
     '/controller-skills' => ControllerSkills::class,
-    '/delete-skills' => DeleteSkills::class
+    '/delete-skills' => DeleteSkills::class,
+
+    // Languages section
+    '/add-language' => FormAddLanguage::class,
+    '/save-language' => \App\Controller\Admin\ControllerLanguage::class,
+    '/delete-language' => \App\Controller\Admin\DeleteLanguage::class
 
 ];
 

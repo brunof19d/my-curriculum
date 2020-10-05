@@ -4,13 +4,16 @@
 <!-- Button Edit Admin -->
 <?php \App\Helper\ButtonAdmin::editButton('/edit-skills'); ?>
 
-
 <p class=""><b>Front End</b></p>
 
 <?php foreach ($queryFrontEnd as $row): ?>
     <p><?= $row['name_skill']; ?></p>
 <?php endforeach; ?>
-<p>Framework: jQuery</p>
+
+<p class="">Framework</p>
+<?php  foreach ($queryFrameFront as $row): ?>
+<p><?= $row['name_skill']; ?></p>
+<?php endforeach; ?>
 
 <hr>
 
@@ -18,7 +21,11 @@
 <?php foreach ($queryBackEnd as $row): ?>
     <p><?= $row['name_skill']; ?></p>
 <?php endforeach; ?>
-<p>Framework: Laravel</p>
+
+<p>Framework</p>
+<?php  foreach ($queryFrameBack as $row): ?>
+    <p><?= $row['name_skill']; ?></p>
+<?php endforeach; ?>
 
 <hr>
 

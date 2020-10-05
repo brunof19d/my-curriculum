@@ -7,6 +7,7 @@ namespace App\Controller\Admin;
 use App\Helper\FlashMessageTrait;
 use App\Helper\RenderHtml;
 use App\Infrastructure\Repository\PdoEducationRepository;
+use App\Infrastructure\Repository\PdoLanguageRepository;
 use App\Infrastructure\Repository\PdoPersonalDataRepository;
 use App\Infrastructure\Repository\PdoSkillRepository;
 use App\Infrastructure\Repository\PdoWorkRepository;
@@ -23,6 +24,7 @@ class Admin implements RequestHandlerInterface
     private PdoEducationRepository $repositoryEducation;
     private PdoPersonalDataRepository $repositoryPersonal;
     private PdoWorkRepository $repositoryWork;
+    private PdoLanguageRepository $repositoryLanguage;
 
     public function __construct()
     {
@@ -30,6 +32,7 @@ class Admin implements RequestHandlerInterface
         $this->repositoryEducation = new PdoEducationRepository();
         $this->repositoryPersonal = new PdoPersonalDataRepository();
         $this->repositoryWork = new PdoWorkRepository();
+        $this->repositoryLanguage = new PdoLanguageRepository();
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -46,7 +49,10 @@ class Admin implements RequestHandlerInterface
             'queryPersonalData' => $this->repositoryPersonal->getData(1),   // Default (1), because there will always be only one row in the personal data table.
             'queryFrontEnd'     => $this->repositorySkill->queryCategory(1),    // ID (1) = FRONT END
             'queryBackEnd'      => $this->repositorySkill->queryCategory(2),    // ID (2) = BACK END
-            'queryDatabase'     => $this->repositorySkill->queryCategory(3)     // ID (3) = DATABASE
+            'queryDatabase'     => $this->repositorySkill->queryCategory(3),    // ID (3) = DATABASE
+            'queryFrameFront'   => $this->repositorySkill->queryCategory(4),    // ID (4) = FRAMEWORK FRONTEND
+            'queryFrameBack'    => $this->repositorySkill->queryCategory(5),     // ID (5) = FRAMEWORK BACKEND
+            'queryLanguage'     => $this->repositoryLanguage->allLanguages()
         ]);
         return new Response(200, [], $html);
     }

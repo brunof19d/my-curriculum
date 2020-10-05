@@ -1,7 +1,13 @@
-<p><i class="fas fa-globe-europe"></i><strong>Languages</strong></p>
+<p>
+    <i class="fas fa-globe-europe"></i>
+    <strong>Languages</strong>
+    <!-- Button Add Admin -->
+    <?php \App\Helper\ButtonAdmin::addButton('/add-language'); ?>
+</p>
 
-<!-- Button Edit Admin -->
-<?php \App\Helper\ButtonAdmin::editButton('/edit-skills'); ?>
-
-<p>Portuguese</p>
-<p>English</p>
+<?php foreach ($queryLanguage as $language): ?>
+<p class="d-flex justify-content-between">
+    <?= $language->getNameLanguage(); ?>
+    <a href="/delete-language?id=<?= $language->getId(); ?>" class="btn btn-danger btn-sm"> Delete </a>
+</p>
+<?php endforeach; ?>

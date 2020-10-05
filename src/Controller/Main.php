@@ -38,7 +38,9 @@ class Main implements RequestHandlerInterface
             'queryPersonalData' => $this->repositoryPersonal->getData(1),   // Default (1), because there will always be only one row in the personal data table.
             'queryFrontEnd'     => $this->repositorySkill->queryCategory(1),    // ID (1) = FRONT END
             'queryBackEnd'      => $this->repositorySkill->queryCategory(2),    // ID (2) = BACK END
-            'queryDatabase'     => $this->repositorySkill->queryCategory(3)     // ID (3) = DATABASE
+            'queryDatabase'     => $this->repositorySkill->queryCategory(3),    // ID (3) = DATABASE
+            'queryFrameFront'   => $this->repositorySkill->queryCategory(4),    // ID (4) = FRAMEWORK FRONTEND
+            'queryFrameBack'    => $this->repositorySkill->queryCategory(5)     // ID (5) = FRAMEWORK BACKEND
         ]);
         return new Response(200, [], $html);
     }
