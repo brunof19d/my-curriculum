@@ -1,5 +1,4 @@
-<div class="border mt-3 shadow">
-    <div class="m-2">
+
         <p class="title-main"><i class="fas fa-university"></i><strong>Education</strong>
             <?php \App\Helper\ButtonAdmin::addButton('/add-education'); ?>
         </p>
@@ -39,19 +38,4 @@
             <hr>
         <?php endforeach; ?>
 
-        <!-- Courses -->
-        <p class="title-main"><i class="fas fa-graduation-cap"></i><strong>Courses</strong></p>
 
-        <!-- Button Edit -->
-        <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
-            <div class="d-flex justify-content-center">
-                <a href="/home" class="btn btn-dark btn-edit w-25">Edit</a>
-            </div>
-        <?php endif; ?>
-
-        <div class="m-2 d-flex justify-content-center">
-            <a href="#" class="myButton">Show all</a>
-        </div>
-
-    </div>
-</div>

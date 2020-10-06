@@ -4,13 +4,16 @@
 use App\Controller\Admin\Admin;
 use App\Controller\Admin\ControllerAdmin;
 use App\Controller\Admin\ControllerEducation;
+use App\Controller\Admin\ControllerLanguage;
 use App\Controller\Admin\ControllerPersonalData;
 use App\Controller\Admin\ControllerSkills;
 use App\Controller\Admin\ControllerWork;
 use App\Controller\Admin\DeleteAdmin;
 use App\Controller\Admin\DeleteEducation;
+use App\Controller\Admin\DeleteLanguage;
 use App\Controller\Admin\DeleteSkills;
 use App\Controller\Admin\DeleteWork;
+use App\Controller\Admin\Form\FormAddCourse;
 use App\Controller\Admin\Form\FormAddEducation;
 use App\Controller\Admin\Form\FormAddLanguage;
 use App\Controller\Admin\Form\FormAddSkill;
@@ -61,8 +64,13 @@ return [
 
     // Languages section
     '/add-language' => FormAddLanguage::class,
-    '/save-language' => \App\Controller\Admin\ControllerLanguage::class,
-    '/delete-language' => \App\Controller\Admin\DeleteLanguage::class
+    '/save-language' => ControllerLanguage::class,
+    '/delete-language' => DeleteLanguage::class,
+
+    // Courses section
+    '/add-course' => FormAddCourse::class,
+    '/controller-courses' => \App\Controller\Admin\ControllerCourses::class
+
 
 ];
 
