@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Helper\FlashMessageTrait;
 use App\Helper\RenderHtml;
+use App\Infrastructure\Repository\PdoCourseRepository;
 use App\Infrastructure\Repository\PdoEducationRepository;
 use App\Infrastructure\Repository\PdoLanguageRepository;
 use App\Infrastructure\Repository\PdoPersonalDataRepository;
@@ -25,6 +26,7 @@ class Admin implements RequestHandlerInterface
     private PdoPersonalDataRepository $repositoryPersonal;
     private PdoWorkRepository $repositoryWork;
     private PdoLanguageRepository $repositoryLanguage;
+    private PdoCourseRepository $repositoryCourse;
 
     public function __construct()
     {
@@ -33,6 +35,7 @@ class Admin implements RequestHandlerInterface
         $this->repositoryPersonal = new PdoPersonalDataRepository();
         $this->repositoryWork = new PdoWorkRepository();
         $this->repositoryLanguage = new PdoLanguageRepository();
+        $this->repositoryCourse = new PdoCourseRepository();
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -52,7 +55,8 @@ class Admin implements RequestHandlerInterface
             'queryDatabase'     => $this->repositorySkill->queryCategory(3),    // ID (3) = DATABASE
             'queryFrameFront'   => $this->repositorySkill->queryCategory(4),    // ID (4) = FRAMEWORK FRONTEND
             'queryFrameBack'    => $this->repositorySkill->queryCategory(5),     // ID (5) = FRAMEWORK BACKEND
-            'queryLanguage'     => $this->repositoryLanguage->allLanguages()
+            'queryLanguage'     => $this->repositoryLanguage->allLanguages(),
+            'queryCourses'      => $this->repositoryCourse->allCourses()
         ]);
         return new Response(200, [], $html);
     }

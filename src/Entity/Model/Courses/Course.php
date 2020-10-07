@@ -7,11 +7,33 @@ namespace App\Entity\Model\Courses;
 class Course
 {
     private int $courseId;
-    private Category $category;
-    private Institution $institution;
     private string $courseName;
-    private string $courseDescription;
-    private string $courseCertified;
+    private string $courseDescription = '';
+    private $courseCertified;
+    private $courseUrl = '';
+    private $institution;
+    private $category;
+
+    public function getInstitution()
+    {
+        return $this->institution;
+    }
+
+    public function setInstitution($institution): void
+    {
+        $this->institution = $institution;
+    }
+
+
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    public function setCategory($category): void
+    {
+        $this->category = $category;
+    }
 
     public function getCourseId(): int
     {
@@ -21,25 +43,6 @@ class Course
     public function setCourseId(int $courseId): void
     {
         $this->courseId = $courseId;
-    }
-
-    public function getCategory(): Category
-    {
-        return $this->category;
-    }
-    public function setCategory(Category $category): void
-    {
-        $this->category = $category;
-    }
-
-    public function getInstitution(): Institution
-    {
-        return $this->institution;
-    }
-
-    public function setInstitution(Institution $institution): void
-    {
-        $this->institution = $institution;
     }
 
     public function getCourseName(): string
@@ -62,14 +65,24 @@ class Course
         $this->courseDescription = $courseDescription;
     }
 
-    public function getCourseCertified(): string
+    public function getCourseCertified()
     {
         return $this->courseCertified;
     }
 
-    public function setCourseCertified(string $courseCertified): void
+    public function setCourseCertified($courseCertified): void
     {
         $this->courseCertified = $courseCertified;
+    }
+
+    public function getCourseUrl()
+    {
+        return $this->courseUrl;
+    }
+
+    public function setCourseUrl($courseUrl): void
+    {
+        $this->courseUrl = $courseUrl;
     }
 
 }

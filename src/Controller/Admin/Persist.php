@@ -102,4 +102,19 @@ class Persist
         }
         return true;
     }
+
+    /**
+     * Check if exists double $_POST for certified.
+     * @param array $file File photo array
+     * @param string $url URL link.
+     * @return bool
+     */
+    public function verifyDoubleCertificate(array $file, string $url): bool
+    {
+        if (strlen($url) > 0 && strlen($file['name']) > 0) {
+            $this->defineMessage('danger', 'You cannot place an attachment and a URL for the certificate, you must choose only 1');
+            return true;
+        }
+        return false;
+    }
 }

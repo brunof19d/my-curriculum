@@ -6,8 +6,8 @@ namespace App\Entity\Model\Courses;
 
 class Category
 {
-    private int $categoryId;
-    private string $categoryName;
+    public int $categoryId;
+    public string $categoryName;
 
     public function getCategoryId(): int
     {
