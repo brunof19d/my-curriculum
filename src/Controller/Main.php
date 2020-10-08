@@ -4,7 +4,9 @@
 namespace App\Controller;
 
 use App\Helper\RenderHtml;
+use App\Infrastructure\Repository\PdoCourseRepository;
 use App\Infrastructure\Repository\PdoEducationRepository;
+use App\Infrastructure\Repository\PdoLanguageRepository;
 use App\Infrastructure\Repository\PdoPersonalDataRepository;
 use App\Infrastructure\Repository\PdoSkillRepository;
 use App\Infrastructure\Repository\PdoWorkRepository;
@@ -20,6 +22,8 @@ class Main implements RequestHandlerInterface
     private PdoEducationRepository $repositoryEducation;
     private PdoPersonalDataRepository $repositoryPersonal;
     private PdoWorkRepository $repositoryWork;
+    private PdoLanguageRepository $repositoryLanguage;
+    private PdoCourseRepository $repositoryCourse;
 
     public function __construct()
     {
@@ -27,6 +31,8 @@ class Main implements RequestHandlerInterface
         $this->repositoryEducation = new PdoEducationRepository();
         $this->repositoryPersonal = new PdoPersonalDataRepository();
         $this->repositoryWork = new PdoWorkRepository();
+        $this->repositoryLanguage = new PdoLanguageRepository();
+        $this->repositoryCourse = new PdoCourseRepository();
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
@@ -40,7 +46,10 @@ class Main implements RequestHandlerInterface
             'queryBackEnd'      => $this->repositorySkill->queryCategory(2),    // ID (2) = BACK END
             'queryDatabase'     => $this->repositorySkill->queryCategory(3),    // ID (3) = DATABASE
             'queryFrameFront'   => $this->repositorySkill->queryCategory(4),    // ID (4) = FRAMEWORK FRONTEND
-            'queryFrameBack'    => $this->repositorySkill->queryCategory(5)     // ID (5) = FRAMEWORK BACKEND
+            'queryFrameBack'    => $this->repositorySkill->queryCategory(5),     // ID (5) = FRAMEWORK BACKEND
+            'queryLanguage'     => $this->repositoryLanguage->allLanguages(),
+            'queryCoursesLimit' => $this->repositoryCourse->queryCoursesLimit(),
+            'countRowCourse'    => $this->repositoryCourse->queryCountRowsCourses()
         ]);
         return new Response(200, [], $html);
     }
