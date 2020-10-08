@@ -104,11 +104,25 @@ class PdoCourseRepository
         $stmt->execute([':category_name' => $category->getCategoryName()]);
     }
 
-    public function allCourses(): array
+    public function queryCourses(): array
     {
-        $sql = "SELECT * FROM courses";
+        $sql = "SELECT * FROM courses order by course_name ";
         $stmt = $this->pdo->query($sql);
         return $this->treatCoursesList($stmt);
+    }
+
+    public function queryCoursesLimit(): array
+    {
+        $sql = "SELECT * FROM courses ORDER BY course_name LIMIT 5";
+        $stmt = $this->pdo->query($sql);
+        return $this->treatCoursesList($stmt);
+    }
+
+    public function queryCountRowsCourses(): int
+    {
+        $sql = "SELECT COUNT(course_id) FROM courses";
+        $stmt = $this->pdo->query($sql);
+        return $stmt->fetchColumn();
     }
 
     public function treatCoursesList(PDOStatement $stmt): array
@@ -121,6 +135,7 @@ class PdoCourseRepository
             $courseData->setCourseId($row['course_id']);
             $courseData->setCourseName($row['course_name']);
             $courseData->setInstitution($row['institution_id']);
+            $courseData->setCourseDescription($row['course_description']);
             $courseData->setCategory($row['category_id']);
             $courseData->setCourseCertified($row['course_certified']);
             $courseData->setCourseUrl($row['course_certified_url']);
@@ -147,5 +162,11 @@ class PdoCourseRepository
         ]);
     }
 
-
+    public function remove(Course $course): void
+    {
+        $sql = "DELETE FROM courses WHERE course_id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $course->getCourseId(), PDO::PARAM_INT);
+        $stmt->execute();
+    }
 }

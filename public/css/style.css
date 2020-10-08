@@ -69,3 +69,17 @@ svg {
     border-radius: 20px;
 }
 
+.line-table-description {
+    width: 75%;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+#searchCourse {
+    width: 50%;
+    margin-bottom: 10px;
+    padding: 10px 20px 10px 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+

@@ -56,7 +56,8 @@ class Admin implements RequestHandlerInterface
             'queryFrameFront'   => $this->repositorySkill->queryCategory(4),    // ID (4) = FRAMEWORK FRONTEND
             'queryFrameBack'    => $this->repositorySkill->queryCategory(5),     // ID (5) = FRAMEWORK BACKEND
             'queryLanguage'     => $this->repositoryLanguage->allLanguages(),
-            'queryCourses'      => $this->repositoryCourse->allCourses()
+            'queryCoursesLimit' => $this->repositoryCourse->queryCoursesLimit(),
+            'countRowCourse'    => $this->repositoryCourse->queryCountRowsCourses()
         ]);
         return new Response(200, [], $html);
     }

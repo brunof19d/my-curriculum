@@ -3,12 +3,14 @@
 
 use App\Controller\Admin\Admin;
 use App\Controller\Admin\ControllerAdmin;
+use App\Controller\Admin\ControllerCourses;
 use App\Controller\Admin\ControllerEducation;
 use App\Controller\Admin\ControllerLanguage;
 use App\Controller\Admin\ControllerPersonalData;
 use App\Controller\Admin\ControllerSkills;
 use App\Controller\Admin\ControllerWork;
 use App\Controller\Admin\DeleteAdmin;
+use App\Controller\Admin\DeleteCourse;
 use App\Controller\Admin\DeleteEducation;
 use App\Controller\Admin\DeleteLanguage;
 use App\Controller\Admin\DeleteSkills;
@@ -25,6 +27,7 @@ use App\Controller\Admin\Form\FormEditWork;
 use App\Controller\Admin\Form\FormLogin;
 use App\Controller\Admin\Form\FormRegister;
 use App\Controller\Admin\Logout;
+use App\Controller\Admin\TableCourses;
 use App\Controller\Main;
 
 return [
@@ -69,7 +72,9 @@ return [
 
     // Courses section
     '/add-course' => FormAddCourse::class,
-    '/controller-courses' => \App\Controller\Admin\ControllerCourses::class
+    '/delete-course' => DeleteCourse::class,
+    '/controller-courses' => ControllerCourses::class,
+    '/table-courses' => TableCourses::class
 
 
 ];
