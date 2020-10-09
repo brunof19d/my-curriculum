@@ -104,6 +104,22 @@ class PdoCourseRepository
         $stmt->execute([':category_name' => $category->getCategoryName()]);
     }
 
+    public function deleteCategory(Category $category): void
+    {
+        $sql = "DELETE FROM categories WHERE category_id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':id', $category->getCategoryId(), PDO::PARAM_INT);
+        $stmt->execute();
+    }
+
+    public function verifyRowCategory(Category $category)
+    {
+        $sql = "SELECT * FROM courses WHERE category_id = :category_id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':category_id' => $category->getCategoryId()]);
+        return $stmt->fetch();
+    }
+
     public function verifyRowInstitution(Institution $institution)
     {
         $sql = "SELECT * FROM courses WHERE institution_id = :institution_id";

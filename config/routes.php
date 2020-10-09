@@ -10,6 +10,7 @@ use App\Controller\Admin\ControllerPersonalData;
 use App\Controller\Admin\ControllerSkills;
 use App\Controller\Admin\ControllerWork;
 use App\Controller\Admin\DeleteAdmin;
+use App\Controller\Admin\DeleteCategory;
 use App\Controller\Admin\DeleteCourse;
 use App\Controller\Admin\DeleteEducation;
 use App\Controller\Admin\DeleteInstitution;
@@ -76,6 +77,7 @@ return [
     '/add-course' => FormAddCourse::class,
     '/delete-course' => DeleteCourse::class,
     '/delete-institution' => DeleteInstitution::class,
+    '/delete-category' => DeleteCategory::class,
     '/controller-courses' => ControllerCourses::class,
     '/table-courses' => TableCourses::class,
     '/table-filter-category' => TableFilterCategory::class,
