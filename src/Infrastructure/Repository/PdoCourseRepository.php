@@ -104,6 +104,21 @@ class PdoCourseRepository
         $stmt->execute([':category_name' => $category->getCategoryName()]);
     }
 
+    public function verifyRowInstitution(Institution $institution)
+    {
+        $sql = "SELECT * FROM courses WHERE institution_id = :institution_id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':institution_id' => $institution->getInstitutionId()]);
+        return $stmt->fetch();
+    }
+
+    public function queryCoursesOnlyByCategory(int $value): array
+    {
+        $sql = "SELECT * FROM courses WHERE category_id = $value ORDER BY course_name";
+        $stmt = $this->pdo->query($sql);
+        return $this->treatCoursesList($stmt);
+    }
+
     public function queryCourses(): array
     {
         $sql = "SELECT * FROM courses order by course_name ";

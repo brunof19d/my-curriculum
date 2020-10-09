@@ -11,23 +11,26 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
 
-class TableCourses implements RequestHandlerInterface
+class TableFilterCategory implements RequestHandlerInterface
 {
     use RenderHtml;
     private PdoCourseRepository $repository;
+    private Persist $persist;
 
     public function __construct()
     {
         $this->repository = new PdoCourseRepository();
+        $this->persist = new Persist();
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $html = $this->render('admin/section/table-courses.php', [
-            'title' => 'Table courses',
-            'queryCourses' => $this->repository->queryCourses(),
-            'queryInstitution' => $this->repository->allInstitution(),
-            'queryCategory' => $this->repository->allCategories()
+        $category = $this->persist->filterId($_POST['category']);
+        if (!$category) return new Response(302, ['Location' => '/table-course']);
+
+        $html = $this->render('admin/section/table-filter-category.php', [
+            'title' => 'Table courses category',
+            'queryOnlyCategory' => $this->repository->queryCoursesOnlyByCategory($category)
         ]);
         return new Response(200, [], $html);
     }

@@ -12,6 +12,7 @@ use App\Controller\Admin\ControllerWork;
 use App\Controller\Admin\DeleteAdmin;
 use App\Controller\Admin\DeleteCourse;
 use App\Controller\Admin\DeleteEducation;
+use App\Controller\Admin\DeleteInstitution;
 use App\Controller\Admin\DeleteLanguage;
 use App\Controller\Admin\DeleteSkills;
 use App\Controller\Admin\DeleteWork;
@@ -28,6 +29,7 @@ use App\Controller\Admin\Form\FormLogin;
 use App\Controller\Admin\Form\FormRegister;
 use App\Controller\Admin\Logout;
 use App\Controller\Admin\TableCourses;
+use App\Controller\Admin\TableFilterCategory;
 use App\Controller\Main;
 
 return [
@@ -73,9 +75,10 @@ return [
     // Courses section
     '/add-course' => FormAddCourse::class,
     '/delete-course' => DeleteCourse::class,
+    '/delete-institution' => DeleteInstitution::class,
     '/controller-courses' => ControllerCourses::class,
-    '/table-courses' => TableCourses::class
-
+    '/table-courses' => TableCourses::class,
+    '/table-filter-category' => TableFilterCategory::class,
 
 ];
 
