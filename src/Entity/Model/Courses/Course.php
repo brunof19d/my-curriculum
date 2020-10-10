@@ -13,6 +13,7 @@ class Course
     private $courseUrl = '';
     private $institution;
     private $category;
+    private $highlight;
 
     public function getInstitution()
     {
@@ -83,6 +84,16 @@ class Course
     public function setCourseUrl($courseUrl): void
     {
         $this->courseUrl = $courseUrl;
+    }
+
+    public function getHighlight()
+    {
+        return $this->highlight;
+    }
+
+    public function setHighlight($highlight): void
+    {
+        $this->highlight = $highlight;
     }
 
 }

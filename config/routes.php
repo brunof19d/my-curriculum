@@ -28,6 +28,7 @@ use App\Controller\Admin\Form\FormEditSkills;
 use App\Controller\Admin\Form\FormEditWork;
 use App\Controller\Admin\Form\FormLogin;
 use App\Controller\Admin\Form\FormRegister;
+use App\Controller\Admin\HighlightCourse;
 use App\Controller\Admin\Logout;
 use App\Controller\Admin\TableCourses;
 use App\Controller\Admin\TableFilterCategory;
@@ -81,6 +82,7 @@ return [
     '/controller-courses' => ControllerCourses::class,
     '/table-courses' => TableCourses::class,
     '/table-filter-category' => TableFilterCategory::class,
+    '/highlight-course' => HighlightCourse::class,
 
 ];
 

@@ -144,9 +144,19 @@ class PdoCourseRepository
 
     public function queryCoursesLimit(): array
     {
-        $sql = "SELECT * FROM courses ORDER BY course_name LIMIT 5";
+        $sql = "SELECT * FROM courses WHERE highlight = 1 ORDER BY course_name LIMIT 5";
         $stmt = $this->pdo->query($sql);
         return $this->treatCoursesList($stmt);
+    }
+
+    public function queryCountHighlightLimit(): bool
+    {
+        $sql = "SELECT * FROM courses WHERE highlight = 1";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+        $count = $stmt->rowCount();
+        if ($count >= 5) return true;
+        return false;
     }
 
     public function queryCountRowsCourses(): int
@@ -170,6 +180,7 @@ class PdoCourseRepository
             $courseData->setCategory($row['category_id']);
             $courseData->setCourseCertified($row['course_certified']);
             $courseData->setCourseUrl($row['course_certified_url']);
+            $courseData->setHighlight($row['highlight']);
             array_push($courseList, $courseData);
         }
         return $courseList;
@@ -199,5 +210,15 @@ class PdoCourseRepository
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':id', $course->getCourseId(), PDO::PARAM_INT);
         $stmt->execute();
+    }
+
+    public function highlightCourse(Course $course)
+    {
+        $sql = "UPDATE courses SET highlight = :highlight WHERE course_id = :course_id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([
+            ':highlight' => $course->getHighlight(),
+            ':course_id' => $course->getCourseId()
+        ]);
     }
 }

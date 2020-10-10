@@ -25,6 +25,7 @@
         <th class="text-center">Institution</th>
         <th class="text-center">Category</th>
         <th class="text-center">Certified</th>
+        <th class="text-center">Featured in the table (only 5)</th>
         <?php if (isset($_SESSION['logged']) == TRUE): ?>
             <th class="text-center">#</th>
         <?php endif; ?>
@@ -52,6 +53,24 @@
                     N/A
                 <?php endif; ?>
             </td>
+
+
+            <?php if ($course->getHighlight() == 0 && ($highlightLimit == TRUE)): ?>
+                <td>
+                    <a href="/highlight-course?id=<?= $course->getCourseId(); ?>&active=true"
+                       class="btn btn-sm btn-info disabled">Destacar</a>
+                </td>
+            <?php elseif ($course->getHighlight() == 0 && ($highlightLimit == FALSE)): ?>
+                <td>
+                    <a href="/highlight-course?id=<?= $course->getCourseId(); ?>&active=true"
+                       class="btn btn-sm btn-info">Destacar</a>
+                </td>
+            <?php elseif ($course->getHighlight() == 1) : ?>
+                <td><a href="/highlight-course?id=<?= $course->getCourseId(); ?>&active=false"
+                       class="btn btn-sm btn-warning">Shuft off</a></td>
+
+            <?php endif; ?>
+
             <?php if (isset($_SESSION['logged']) == TRUE): ?>
                 <td><a href="/delete-course?id=<?= $course->getCourseId(); ?>" class="btn btn-danger btn-sm">Delete</a>
                 </td>
@@ -62,5 +81,4 @@
 </table>
 
 <script><?php require_once __DIR__ . '/../../../../../public/js/inputSearch.js'; ?></script>
-
 <?php require_once __DIR__ . '/../../../includes/footer.php' ?>

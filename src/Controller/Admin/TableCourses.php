@@ -24,10 +24,11 @@ class TableCourses implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $html = $this->render('admin/section/table-courses.php', [
-            'title' => 'Table courses',
-            'queryCourses' => $this->repository->queryCourses(),
-            'queryInstitution' => $this->repository->allInstitution(),
-            'queryCategory' => $this->repository->allCategories()
+            'title'             => 'Table courses',
+            'queryCourses'      => $this->repository->queryCourses(),
+            'queryInstitution'  => $this->repository->allInstitution(),
+            'queryCategory'     => $this->repository->allCategories(),
+            'highlightLimit'    => $this->repository->queryCountHighlightLimit()
         ]);
         return new Response(200, [], $html);
     }

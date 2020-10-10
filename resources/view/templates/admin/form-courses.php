@@ -13,6 +13,7 @@
         <div class="d-flex align-items-baseline">
             <label>Institution</label>
             <select class=" w-25 ml-1" name="institution">
+                <option selected disabled value="">Choose...</option>
                 <?php foreach ($queryInstitution as $institution): ?>
                     <option value="<?= $institution->getInstitutionId(); ?>">
                         <?= $institution->getInstitutionName(); ?>
@@ -25,6 +26,7 @@
         <div class="d-flex align-items-baseline">
             <label>Category</label>
             <select class=" w-25 ml-1" name="category">
+                <option selected disabled value="">Choose...</option>
                 <?php foreach ($queryCategory as $category): ?>
                     <option value="<?= $category->getCategoryId(); ?>">
                         <?= $category->getCategoryName(); ?>
@@ -62,7 +64,6 @@
 
     </form>
 </div>
-
 
 <div class="container bg-light mt-3">
     <h4 class="text-center">Institution</h4>
