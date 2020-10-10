@@ -62,8 +62,10 @@ class ControllerCourses implements RequestHandlerInterface
 
             $certifiedUrl = filter_var($_POST['certified_url'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
-            $verifyDoubleCertified = $this->persist->verifyDoubleCertificate($certified, $certifiedName);
+            $verifyDoubleCertified = $this->persist->verifyDoubleCertificate($certified, $certifiedUrl);
             if ($verifyDoubleCertified) return $pageRedirect;
+
+
 
             $this->institution->setInstitutionId($institution);
             $this->category->setCategoryId($category);
