@@ -3,7 +3,6 @@
 <?php \App\Helper\ButtonAdmin::addButton('/add-course'); ?>
 
 <table class="table table-striped table-bordered mt-3  table-responsive">
-
     <thead>
     <tr>
         <th class="w-100">Course</th>
@@ -12,7 +11,6 @@
         <th class="text-center">Certified</th>
     </tr>
     </thead>
-
     <tbody>
     <?php foreach ($queryCoursesLimit as $course): ?>
         <tr>
@@ -31,7 +29,6 @@
         </tr>
     <?php endforeach; ?>
     </tbody>
-
 </table>
 
 <?php if ($countRowCourse > 5 or $_SERVER['PATH_INFO'] == '/admin'): ?>

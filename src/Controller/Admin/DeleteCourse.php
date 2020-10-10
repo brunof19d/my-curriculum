@@ -35,7 +35,7 @@ class DeleteCourse implements RequestHandlerInterface
         if (!$filter) return $redirectLogin;
 
         $this->course->setCourseId($id);
-        $this->repository->remove($this->course);
+        $this->repository->deleteCourse($this->course);
         $this->defineMessage('success', 'Course removed with success');
         return $redirectLogin;
     }

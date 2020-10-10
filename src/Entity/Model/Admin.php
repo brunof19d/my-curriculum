@@ -9,6 +9,7 @@ class Admin
     private int $id;
     private string $email;
     private string $password;
+
     public function setId(int $id)
     {
         $this->id = $id;

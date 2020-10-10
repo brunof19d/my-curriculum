@@ -4,9 +4,6 @@
 namespace App\Controller\Admin;
 
 
-
-
-
 use App\Entity\Model\Admin;
 use App\Helper\FlashMessageTrait;
 use App\Infrastructure\Repository\PdoAdminRepository;
@@ -18,7 +15,6 @@ use Psr\Http\Server\RequestHandlerInterface;
 class ControllerAdmin implements RequestHandlerInterface
 {
     use FlashMessageTrait;
-
     private Admin $admin;
     private PdoAdminRepository $repository;
     private Persist $persist;
@@ -30,11 +26,10 @@ class ControllerAdmin implements RequestHandlerInterface
         $this->persist = new Persist();
     }
 
-
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $email = $this->persist->filterEmail($_POST['email']);
-        $password =  $this->persist->filterPassword($_POST['password']);
+        $password = $this->persist->filterPassword($_POST['password']);
 
         if (array_key_exists('login', $_POST)) {
             $pageRedirect = new Response(302, ['Location' => '/login']);
@@ -44,6 +39,7 @@ class ControllerAdmin implements RequestHandlerInterface
 
             $this->admin->setEmail($email);
             $this->admin->setPassword($password);
+
             $query = $this->repository->login($this->admin);
             if ($query == FALSE) {
                 $this->defineMessage('danger', 'Email or password wrong.');
@@ -65,8 +61,5 @@ class ControllerAdmin implements RequestHandlerInterface
             $this->defineMessage('success', 'User registered with successful');
             return $pageRedirect;
         }
-
-
-
     }
 }

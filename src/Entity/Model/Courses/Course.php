@@ -8,14 +8,14 @@ class Course
 {
     private int $courseId;
     private string $courseName;
-    private string $courseDescription = '';
-    private $courseCertified;
-    private $courseUrl = '';
-    private $institution;
-    private $category;
-    private $highlight;
+    private string $courseDescription;
+    private string $courseCertified;
+    private string $courseUrl;
+    private int $institution;
+    private int $category;
+    private int $highlight;
 
-    public function getInstitution()
+    public function getInstitution(): int
     {
         return $this->institution;
     }
@@ -25,8 +25,7 @@ class Course
         $this->institution = $institution;
     }
 
-
-    public function getCategory()
+    public function getCategory(): int
     {
         return $this->category;
     }
@@ -66,7 +65,7 @@ class Course
         $this->courseDescription = $courseDescription;
     }
 
-    public function getCourseCertified()
+    public function getCourseCertified(): string
     {
         return $this->courseCertified;
     }
@@ -76,7 +75,7 @@ class Course
         $this->courseCertified = $courseCertified;
     }
 
-    public function getCourseUrl()
+    public function getCourseUrl(): string
     {
         return $this->courseUrl;
     }
@@ -86,7 +85,7 @@ class Course
         $this->courseUrl = $courseUrl;
     }
 
-    public function getHighlight()
+    public function getHighlight(): int
     {
         return $this->highlight;
     }
@@ -95,5 +94,4 @@ class Course
     {
         $this->highlight = $highlight;
     }
-
 }

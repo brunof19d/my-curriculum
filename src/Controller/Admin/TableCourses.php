@@ -25,7 +25,7 @@ class TableCourses implements RequestHandlerInterface
     {
         $html = $this->render('admin/section/table-courses.php', [
             'title'             => 'Table courses',
-            'queryCourses'      => $this->repository->queryCourses(),
+            'queryCourses'      => $this->repository->allCourses(),
             'queryInstitution'  => $this->repository->allInstitution(),
             'queryCategory'     => $this->repository->allCategories(),
             'highlightLimit'    => $this->repository->queryCountHighlightLimit()

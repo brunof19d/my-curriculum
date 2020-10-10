@@ -8,6 +8,11 @@ use App\Infrastructure\Repository\PdoCourseRepository;
 
 class TranslateInstitution
 {
+    /**
+     * Translates the data it receives from the database into the course table
+     * @param int $id
+     * @return string
+     */
     public static function handle(int $id): string
     {
         $repository = new PdoCourseRepository();

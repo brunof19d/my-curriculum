@@ -19,14 +19,23 @@ class PdoLanguageRepository implements LanguageRepository
         $this->pdo = Database::getConnection();
     }
 
+    /**
+     * Return All rows in the database.
+     * @return array
+     */
     public function allLanguages(): array
     {
         $sql = "SELECT * FROM language";
         $stmt = $this->pdo->query($sql);
-        return $this->treatUserList($stmt);
+        return $this->treatLanguageList($stmt);
     }
 
-    public function treatUserList(PDOStatement $stmt): array
+    /**
+     * Treat Data`as rows receive in the database.
+     * @param PDOStatement $stmt
+     * @return array
+     */
+    public function treatLanguageList(PDOStatement $stmt): array
     {
         $languageDataList = $stmt->fetchAll();
         $languageList = [];
@@ -40,6 +49,11 @@ class PdoLanguageRepository implements LanguageRepository
         return $languageList;
     }
 
+    /**
+     * Save data`s Languages in database.
+     * @param Language $language
+     * @return void
+     */
     public function save(Language $language): void
     {
         $sql = "INSERT INTO language (name_language) VALUES (:name_language)";
@@ -48,6 +62,10 @@ class PdoLanguageRepository implements LanguageRepository
 
     }
 
+    /**
+     * Remove data`s Languages in database.
+     * @param Language $language
+     */
     public function remove(Language $language): void
     {
         $sql = "DELETE FROM language WHERE id = :id";

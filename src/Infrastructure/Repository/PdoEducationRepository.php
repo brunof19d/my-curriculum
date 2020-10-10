@@ -28,7 +28,7 @@ class PdoEducationRepository implements EducationRepository
     {
         $sql = "SELECT * FROM education";
         $stmt = $this->pdo->query($sql);
-        return $this->treatUserList($stmt);
+        return $this->treatEducationList($stmt);
     }
 
     /**
@@ -36,7 +36,7 @@ class PdoEducationRepository implements EducationRepository
      * @param PDOStatement $stmt Statement $sql->AllUser.
      * @return array
      */
-    public function treatUserList(PDOStatement $stmt): array
+    public function treatEducationList(PDOStatement $stmt): array
     {
         $educationDataList = $stmt->fetchAll();
         $educationList = [];

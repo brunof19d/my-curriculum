@@ -27,7 +27,7 @@ class PdoWorkRepository implements WorkRepository
     {
         $sql = "SELECT * FROM work";
         $stmt = $this->pdo->query($sql);
-        return $this->treatUserList($stmt);
+        return $this->treatWorkList($stmt);
     }
 
     /**
@@ -35,7 +35,7 @@ class PdoWorkRepository implements WorkRepository
      * @param PDOStatement $stmt Statement $sql->AllUser.
      * @return array
      */
-    public function treatUserList(PDOStatement $stmt): array
+    public function treatWorkList(PDOStatement $stmt): array
     {
         $workDataList = $stmt->fetchAll();
         $workList = [];

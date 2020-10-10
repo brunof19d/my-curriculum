@@ -11,7 +11,7 @@ interface LanguageRepository
 {
     public function allLanguages(): array;
 
-    public function treatUserList(PDOStatement $stmt): array;
+    public function treatLanguageList(PDOStatement $stmt): array;
 
     public function save(Language $language): void;
 

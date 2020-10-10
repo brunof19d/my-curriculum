@@ -18,6 +18,11 @@ class PdoSkillRepository implements SkillRepository
         $this->pdo = Database::getConnection();
     }
 
+    /**
+     * Select only 1 row in database.
+     * @param int $id
+     * @return array
+     */
     public function queryCategory(int $id): array
     {
         $sql = "SELECT * FROM skills WHERE category_id = :id";
@@ -26,6 +31,11 @@ class PdoSkillRepository implements SkillRepository
         return $stmt->fetchAll();
     }
 
+    /**
+     * Save data's skills in database.
+     * @param Skill $skill
+     * @return void
+     */
     public function save(Skill $skill): void
     {
         $sql = "INSERT INTO skills (category_id, name_skill) VALUES (:category_id, :name_skill)";
@@ -36,7 +46,12 @@ class PdoSkillRepository implements SkillRepository
         ]);
     }
 
-    public function remove(Skill $skill)
+    /**
+     *  Remove data`s skills in database.
+     * @param Skill $skill
+     * @return void
+     */
+    public function remove(Skill $skill): void
     {
         $sql = "DELETE FROM skills WHERE id = :id";
         $stmt = $this->pdo->prepare($sql);

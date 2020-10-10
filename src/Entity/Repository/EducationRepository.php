@@ -11,7 +11,7 @@ interface EducationRepository
 {
     public function allEducation(): array;
 
-    public function treatUserList(PDOStatement $stmt): array;
+    public function treatEducationList(PDOStatement $stmt): array;
 
     public function searchEducation(int $id): array;
 
