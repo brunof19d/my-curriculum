@@ -44,6 +44,7 @@ class PdoLanguageRepository implements LanguageRepository
             $languageData = new Language();
             $languageData->setId($row['id']);
             $languageData->setNameLanguage($row['name_language']);
+            $languageData->setLevelLanguage($row['level_language']);
             array_push($languageList, $languageData);
         }
         return $languageList;
@@ -56,10 +57,12 @@ class PdoLanguageRepository implements LanguageRepository
      */
     public function save(Language $language): void
     {
-        $sql = "INSERT INTO language (name_language) VALUES (:name_language)";
+        $sql = "INSERT INTO language (name_language, level_language) VALUES (:name_language, :level_language)";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->execute([':name_language' => $language->getNameLanguage()]);
-
+        $stmt->execute([
+            ':name_language'    => $language->getNameLanguage(),
+            ':level_language'   => $language->getLevelLanguage()
+        ]);
     }
 
     /**

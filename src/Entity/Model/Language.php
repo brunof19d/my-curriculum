@@ -8,6 +8,17 @@ class Language
 {
     private int $id;
     private string $nameLanguage;
+    private string $levelLanguage;
+
+    public function getLevelLanguage(): string
+    {
+        return $this->levelLanguage;
+    }
+
+    public function setLevelLanguage(string $levelLanguage): void
+    {
+        $this->levelLanguage = $levelLanguage;
+    }
 
     public function getId(): int
     {

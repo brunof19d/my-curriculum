@@ -29,12 +29,25 @@ class ControllerLanguage implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $language = $this->persist->filterString($_POST['language'], 'Field wrong');
-        if (!$language) return new Response(302,['Location' => '/add-language']);
+        if (!$language) return new Response(302, ['Location' => '/add-language']);
+
+        $level = $_POST['level_language'];
+        $valueLevel = [
+            'Native or Fluent',
+            'Advanced',
+            'Intermediate',
+            'Basic'
+        ];
+        if (in_array($level, $valueLevel)) {
+            $this->language->setLevelLanguage($level);
+        } else {
+            $this->defineMessage('danger', 'Houston, we have a problem.');
+            return new Response(302, ['Location' => '/add-language']);
+        }
 
         $this->language->setNameLanguage($language);
         $this->repository->save($this->language);
         $this->defineMessage('success', 'Save with success');
-        return new Response(200, ['Location' => '/admin']);
-
+        return new Response(200, ['Location' => '/add-language']);
     }
 }
