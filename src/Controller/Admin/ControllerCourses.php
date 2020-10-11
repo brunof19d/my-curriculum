@@ -35,7 +35,6 @@ class ControllerCourses implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $pageRedirect = new Response(302, ['Location' => '/add-course']);
-
         // Course
         if (array_key_exists('register_course', $_POST)) {
             $institution = $this->persist->filterId($_POST['institution']);
@@ -65,8 +64,6 @@ class ControllerCourses implements RequestHandlerInterface
             $verifyDoubleCertified = $this->persist->verifyDoubleCertificate($certified, $certifiedUrl);
             if ($verifyDoubleCertified) return $pageRedirect;
 
-
-
             $this->institution->setInstitutionId($institution);
             $this->category->setCategoryId($category);
             $this->course->setCourseName($courseName);
@@ -78,7 +75,6 @@ class ControllerCourses implements RequestHandlerInterface
             $this->defineMessage('success', 'Course added with success');
             return $pageRedirect;
         }
-
         // Institution
         if (array_key_exists('register_institution', $_POST)) {
             $institution = $this->persist->filterString($_POST['institution_name'], 'Field institution name is invalid');
@@ -88,7 +84,6 @@ class ControllerCourses implements RequestHandlerInterface
             $this->defineMessage('success', 'Institution added with success');
             return $pageRedirect;
         }
-
         // Category
         if (array_key_exists('register_category', $_POST)) {
             $category = $this->persist->filterString($_POST['name_category'], 'Field category name is invalid');

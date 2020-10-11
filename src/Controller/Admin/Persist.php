@@ -10,30 +10,42 @@ class Persist
 {
     use FlashMessageTrait;
 
+    /**
+     * Filter $_POST input type 'email'.
+     * @param string $email $_POST input.
+     * @return string
+     */
     public function filterEmail(string $email): string
     {
         $validaEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
-
         if (is_null($validaEmail) || $validaEmail === false) {
             $this->defineMessage('danger', 'Email is not valid');
         }
         return $validaEmail;
     }
 
+    /**
+     * Filter $_POST input type 'password'.
+     * @param string $password $_POST input.
+     * @return string
+     */
     public function filterPassword(string $password): string
     {
         $validaPassword = trim(filter_var($password, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES));
-
         if (is_null($validaPassword) || $validaPassword == false) {
             $this->defineMessage('danger', 'Password is not valid');
         }
         return $validaPassword;
     }
 
+    /**
+     * Filter $_POST or $_GET (int) ID.
+     * @param $id $_POST OR $_GET.
+     * @return int
+     */
     public function filterId($id): int
     {
         $validId = filter_var($id, FILTER_VALIDATE_INT);
-
         if (is_null($validId) || $validId == false or $validId <= 0) {
             $this->defineMessage('danger', 'ID invalid.');
             return false;
@@ -42,9 +54,9 @@ class Persist
     }
 
     /**
-     * Filter string receive and send message of error
-     * @param string $input $_POST receive
-     * @param string $message Message for error
+     * Filter string receive and send message of error.
+     * @param string $input $_POST receive.
+     * @param string $message Message for error.
      * @return string
      */
     public function filterString(string $input, string $message): string
@@ -56,12 +68,16 @@ class Persist
         return $validString;
     }
 
+    /**
+     * Filter $_POST type 'date' and make expression.
+     * @param string $date $_POST input receive.
+     * @return string
+     */
     public function filterDate(string $date): string
     {
         // Format for Database yyyy/mm/dd
         $defaultDate = '/^[0-9]{4}\-[0-9]{1,2}\-[0-9]{1,2}$/';
         $resultDate = preg_match($defaultDate, $date);
-
         if (!$resultDate) {
             $this->defineMessage('danger', 'Date invalid.');
             return false;
