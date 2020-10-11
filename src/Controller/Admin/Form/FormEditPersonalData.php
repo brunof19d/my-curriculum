@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Form;
 
 
 use App\Helper\RenderHtml;
+use App\Helper\SessionRedirect;
 use App\Infrastructure\Repository\PdoPersonalDataRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -17,6 +18,7 @@ class FormEditPersonalData implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
+        SessionRedirect::redirect(FALSE, '/login');
         $result = new PdoPersonalDataRepository();
         $id = 1; // Default (1), because there will always be only one row in the personal data table.
 

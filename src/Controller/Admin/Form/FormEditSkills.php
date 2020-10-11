@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Form;
 
 
 use App\Helper\RenderHtml;
+use App\Helper\SessionRedirect;
 use App\Infrastructure\Repository\PdoSkillRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -19,6 +20,7 @@ class FormEditSkills implements RequestHandlerInterface
     public function __construct()
     {
         $this->repository = new PdoSkillRepository();
+        SessionRedirect::redirect(FALSE, '/login');
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface

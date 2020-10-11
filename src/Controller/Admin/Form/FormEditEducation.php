@@ -7,6 +7,7 @@ namespace App\Controller\Admin\Form;
 use App\Controller\Admin\Persist;
 use App\Entity\Model\Education;
 use App\Helper\RenderHtml;
+use App\Helper\SessionRedirect;
 use App\Infrastructure\Repository\PdoEducationRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -28,6 +29,7 @@ class FormEditEducation implements RequestHandlerInterface
         $this->repository = new PdoEducationRepository();
         $this->education = new Education();
         $this->persist = new Persist();
+        SessionRedirect::redirect(FALSE, '/login');
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface

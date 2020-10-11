@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 
 
 use App\Helper\RenderHtml;
+use App\Helper\SessionRedirect;
 use App\Infrastructure\Repository\PdoCourseRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -14,6 +15,7 @@ use Psr\Http\Server\RequestHandlerInterface;
 class TableFilterCategory implements RequestHandlerInterface
 {
     use RenderHtml;
+
     private PdoCourseRepository $repository;
     private Persist $persist;
 

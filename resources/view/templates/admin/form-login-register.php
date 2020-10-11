@@ -1,4 +1,10 @@
-<?php require_once __DIR__ . "/../../includes/header.php"; ?>
+<?php
+if (isset($_SESSION['logged']) == TRUE) {
+    require_once __DIR__ . "/../../includes/header-admin.php";
+} else {
+    require_once __DIR__ . "/../../includes/header.php";
+}
+?>
 
 <div class="container">
 
@@ -9,7 +15,7 @@
             <h1>Administrative Page.</h1>
 
             <!-- Button Back -->
-            <?php \App\Helper\ButtonAdmin::backButton('/admin'); ?>
+            <?php \App\Helper\ButtonAdmin::backButton('/home'); ?>
 
         </div>
 
@@ -19,19 +25,19 @@
 
             <!-- Input Email -->
             <div class="form-group">
-                <label class="font-italic">Email</label>
-                <input class="form-control" type="text" name="email" placeholder="email@email.com"/>
+                <label for="emailType" class="font-italic">Email</label>
+                <input class="form-control" id="emailType" type="text" name="email" placeholder="email@email.com"/>
             </div>
 
             <!-- Input Password -->
             <div class="form-group">
-                <label class="font-italic">Password</label>
-                <input class="form-control" type="password" name="password" placeholder="*****"/>
+                <label for="passwordType" class="font-italic">Password</label>
+                <input class="form-control" id="passwordType" type="password" name="password" placeholder="*****"/>
             </div>
 
             <!-- Input Button -->
             <div class="form-group">
-                <button name="<?= $attributeInput ?>" class="btn btn-dark btn-lg"><?= $button; ?></button>
+                <button name="<?= $attributeInput ?>" class="btn btn-dark btn-lg w-100"><?= $button; ?></button>
             </div>
 
         </div>

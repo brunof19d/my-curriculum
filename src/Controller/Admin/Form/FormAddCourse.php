@@ -5,6 +5,7 @@ namespace App\Controller\Admin\Form;
 
 
 use App\Helper\RenderHtml;
+use App\Helper\SessionRedirect;
 use App\Infrastructure\Repository\PdoCourseRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -20,6 +21,7 @@ class FormAddCourse implements RequestHandlerInterface
     public function __construct()
     {
         $this->repository = new PdoCourseRepository();
+        SessionRedirect::redirect(FALSE, '/login');
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface

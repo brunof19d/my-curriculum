@@ -6,6 +6,7 @@ namespace App\Controller\Admin\Form;
 
 use App\Controller\Admin\Persist;
 use App\Helper\RenderHtml;
+use App\Helper\SessionRedirect;
 use App\Infrastructure\Repository\PdoWorkRepository;
 use Nyholm\Psr7\Response;
 use Psr\Http\Message\ResponseInterface;
@@ -22,6 +23,7 @@ class FormEditWork implements RequestHandlerInterface
     {
         $this->persist = new Persist();
         $this->repository = new PdoWorkRepository();
+        SessionRedirect::redirect(FALSE, '/login');
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface

@@ -6,6 +6,7 @@ namespace App\Controller\Admin;
 
 use App\Helper\FlashMessageTrait;
 use App\Helper\RenderHtml;
+use App\Helper\SessionRedirect;
 use App\Infrastructure\Repository\PdoCourseRepository;
 use App\Infrastructure\Repository\PdoEducationRepository;
 use App\Infrastructure\Repository\PdoLanguageRepository;
@@ -36,15 +37,11 @@ class Admin implements RequestHandlerInterface
         $this->repositoryWork = new PdoWorkRepository();
         $this->repositoryLanguage = new PdoLanguageRepository();
         $this->repositoryCourse = new PdoCourseRepository();
+        SessionRedirect::redirect(FALSE, '/login');
     }
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        if (isset($_SESSION['logged']) == FALSE) {
-            $this->defineMessage('danger', 'You need make login to access this area.');
-            return new Response(302, ['Location' => '/login']);
-        }
-
         $html = $this->render('admin/index.php', [
             'title'             => 'Admin Page',
             'queryWork'         => $this->repositoryWork->allWorksExperience(),

@@ -36,7 +36,7 @@ class ButtonAdmin
      */
     public static function backButton(string $actionRedirect): void
     {
-        if ($_SERVER['PATH_INFO'] == '/register') {
+        if ($_SERVER['PATH_INFO'] == '/login') {
             echo "<a href=\"{$actionRedirect}\" class=\"btn btn-dark m-2\">Back</a>";
         }
     }
