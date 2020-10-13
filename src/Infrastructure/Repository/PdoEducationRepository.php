@@ -26,7 +26,7 @@ class PdoEducationRepository implements EducationRepository
      */
     public function allEducation(): array
     {
-        $sql = "SELECT * FROM education";
+        $sql = "SELECT * FROM education ORDER BY date_begin DESC";
         $stmt = $this->pdo->query($sql);
         return $this->treatEducationList($stmt);
     }

@@ -3,7 +3,7 @@
 <div class="d-flex align-items-center justify-content-between">
     <input type="text" id="searchCourse" class="mt-2" onkeyup="inputSearchCourses()"
            placeholder="Search for names courses">
-    <a href="/table-courses" class="btn btn-primary">Back default table</a>
+    <a href="/table-courses" class="btn btn-primary btn-back">Back default table</a>
 </div>
 
 <table id="tableCourses" class="table table-striped table-bordered mt-1 table-responsive">

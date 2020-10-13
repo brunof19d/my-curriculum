@@ -12,7 +12,7 @@
 <div class="d-flex align-items-center justify-content-between">
     <input type="text" id="searchCourse" class="mt-2" onkeyup="inputSearchCourses()"
            placeholder="Search for names courses">
-    <a href="/home" class="btn btn-primary">Back</a>
+    <a href="/home" class="btn btn-primary btn-back">Back</a>
 </div>
 
 <?php require_once __DIR__ . '/../../../includes/alert.php'; ?>

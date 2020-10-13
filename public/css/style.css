@@ -1,31 +1,79 @@
 /* TAGS */
 
 footer {
-    height: 50px;
+    text-align: center;
+    color: white;
+    background-color: cadetblue;
+    font-size: 18px;
+    font-weight: 700;
 }
 
 svg {
-    margin-right: 15px;
-    color: #33bdef
+    margin-right: 10px;
+    color: cadetblue;
+}
+
+ul {
+    list-style-type: none;
 }
 
 /* Class */
+
+@media only screen and (min-width: 600px) {
+
+    .left-panel {
+        margin-left: 100px;
+    }
+
+}
+
+.header-admin {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.icon-footer {
+    color: white;
+    font-size: 25px;
+}
+
 .left-panel .right-panel {
     word-wrap: break-word;
 }
 
+.anchor-social-media {
+    text-decoration: none !important;
+    color: white;
+}
+
+.p-color {
+    color: #757575 !important;
+}
+
+.current-border {
+    background-color: cadetblue;
+    padding: 1px 5px 1px 5px;
+    border: 1px solid #33bdef;
+    border-radius: 5px;
+}
+
 .title-main {
     font-size: 30px;
-    color: #757575!important;
+    color: #757575 !important;
 }
 
 .shadow {
-    box-shadow: 0 5px 20px 0 rgba(0,0,0,0.16), 0 5px 30px 0 rgba(0,0,0,0.12);
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16), 0 5px 30px 0 rgba(0, 0, 0, 0.12);
+}
+
+.left-icon {
+    font-size: 20px;
+    color: #757575 !important;
 }
 
 
-
 /* Image Profile */
+
 .img-profile {
     display: inline-block;
     position: relative;
@@ -33,36 +81,40 @@ svg {
 
 .img-profile .text-img {
     position: absolute;
-    top: 190px;
+    top: 250px;
     left: 10px;
     font-size: 25px;
     color: black;
+    font-weight: 400;
 }
 
- /* Button make in https://www.bestcssbuttongenerator.com */
+/* Button make in https://www.bestcssbuttongenerator.com */
 
 .myButton {
-    background: #33bdef linear-gradient(to bottom, #33bdef 5%, #019ad2 100%);
-    border-radius: 6px;
-    border: 1px solid #057fd0;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
+    box-shadow: 0px 10px 14px -7px #276873;
+    background: #599bb3 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
     font-family: Arial, sans-serif;
-    font-size: 15px;
-    font-weight: bold;
-    padding: 6px 24px;
-    text-decoration: none;
-    text-shadow: 0 -1px 0 #5b6178;
+    font-size:20px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+    text-align: center;
 }
-
 .myButton:hover {
-    background: #019ad2 linear-gradient(to bottom, #019ad2 5%, #33bdef 100%);
+    background: #408c99 linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+}
+.myButton:active {
+    position:relative;
+    top:1px;
 }
 
-.myButton:active {
-    position: relative;
-    top: 1px;
+.btn-back {
+    background: #599bb3 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
 }
 
 .btn-edit {
@@ -86,4 +138,15 @@ svg {
 .filter-table {
     font-size: 14px;
 }
+
+.framework-alert {
+    color: cadetblue;
+    font-weight: 500;
+}
+
+#loop-hr hr:last-child {
+    display: none;
+}
+
+
 

@@ -25,7 +25,7 @@ class PdoWorkRepository implements WorkRepository
      */
     public function allWorksExperience(): array
     {
-        $sql = "SELECT * FROM work";
+        $sql = "SELECT * FROM work ORDER BY date_begin DESC";
         $stmt = $this->pdo->query($sql);
         return $this->treatWorkList($stmt);
     }
@@ -45,8 +45,8 @@ class PdoWorkRepository implements WorkRepository
             $workData->setId($row['id']);
             $workData->setTitleJob($row['title_job']);
             $workData->setCompanyName($row['company_name']);
-            $workData->setDataBegin($row['data_begin']);
-            $workData->setDataEnd($row['data_end']);
+            $workData->setDataBegin($row['date_begin']);
+            $workData->setDataEnd($row['date_end']);
             $workData->setCurrent($row['current']);
             $workData->setDescription($row['description']);
             array_push($workList, $workData);
@@ -78,7 +78,7 @@ class PdoWorkRepository implements WorkRepository
     public function save(Work $work): void
     {
         $sql = "INSERT INTO work 
-            (title_job, company_name, data_begin, data_end, current, description)
+            (title_job, company_name, date_begin, date_end, current, description)
             VALUES
             (:title_job, :company_name, :data_begin, :data_end, :current, :description)
         ";
@@ -103,8 +103,8 @@ class PdoWorkRepository implements WorkRepository
         $sql = "UPDATE work SET 
             title_job = :title_job, 
             company_name = :company_name,
-            data_begin = :data_begin, 
-            data_end = :data_end, 
+            date_begin = :data_begin, 
+            date_end = :data_end, 
             current = :current,
             description = :description
             WHERE

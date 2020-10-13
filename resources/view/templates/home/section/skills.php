@@ -1,37 +1,41 @@
 <!-- Skills -->
-<p><i class="fas fa-bullseye"></i><strong>Skills</strong></p>
+<p class="left-icon">
+    <strong><i class="fas fa-bullseye"></i>Skills</strong>
+</p>
 
 <!-- Button Edit Admin -->
 <?php \App\Helper\ButtonAdmin::editButton('/edit-skills'); ?>
 
-<p class=""><b>Front End</b></p>
-
+<!-- FrontEnd -->
+<p class="font-italic"><strong><u>Front End</u></strong></p>
 <?php foreach ($queryFrontEnd as $row): ?>
-    <p><?= $row['name_skill']; ?></p>
+    <p class="m-3 bg-light"><?= $row['name_skill']; ?></p>
 <?php endforeach; ?>
 
-<p class="">Framework</p>
-<?php  foreach ($queryFrameFront as $row): ?>
-<p><?= $row['name_skill']; ?></p>
+<?php foreach ($queryFrameFront as $row): ?>
+    <p class="m-3 bg-light">
+        <?= $row['name_skill']; ?>
+        <strong class="mr-1 font-italic framework-alert">- Framework</strong>
+    </p>
 <?php endforeach; ?>
 
-<hr>
-
-<p><strong>Back End</strong></p>
+<!-- BackEnd -->
+<p class="font-italic"><strong><u>Back End</u></strong></p>
 <?php foreach ($queryBackEnd as $row): ?>
-    <p><?= $row['name_skill']; ?></p>
+    <p class="m-3 bg-light"><?= $row['name_skill']; ?></p>
 <?php endforeach; ?>
 
-<p>Framework</p>
-<?php  foreach ($queryFrameBack as $row): ?>
-    <p><?= $row['name_skill']; ?></p>
+<?php foreach ($queryFrameBack as $row): ?>
+    <p class="m-3 bg-light">
+        <?= $row['name_skill']; ?>
+        <strong class="mr-1 font-italic framework-alert">- Framework</strong>
+    </p>
 <?php endforeach; ?>
 
-<hr>
-
-<p class=""><b>Database and SQL</b></p>
+<!-- Database and SQL -->
+<p class="font-italic"><strong><u>Database and SQL</u></strong></p>
 <?php foreach ($queryDatabase as $row): ?>
-    <p><?= $row['name_skill']; ?></p>
+    <p class="m-3 bg-light"><?= $row['name_skill']; ?></p>
 <?php endforeach; ?>
 
 <hr>

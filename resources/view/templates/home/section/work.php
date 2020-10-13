@@ -1,6 +1,6 @@
 <!-- Label Work -->
 <div class="border shadow">
-    <div class="m-2">
+    <div class="m-4">
 
         <p class="title-main">
             <i class="fas fa-briefcase"></i>
@@ -9,12 +9,12 @@
                 <a href="/add-work-page" class="btn btn-success btn-sm ml-1">Add</a>
             <?php endif; ?>
         </p>
-
+        <div id="loop-hr">
         <?php /** @var \App\Entity\Model\Admin $query */ ?>
         <?php foreach ($queryWork as $work): ?>
 
             <!-- Title Job -->
-            <p><strong><?= $work->getTitleJob(); ?> / <?= $work->getCompanyName(); ?></strong></p>
+            <p class="p-color"><strong><?= $work->getTitleJob(); ?> / <?= $work->getCompanyName(); ?></strong></p>
 
             <!-- Dates Section Begin -->
             <i class="far fa-calendar-alt"></i>
@@ -23,20 +23,19 @@
             $date = new DateTime($dateDatabase);
             echo $date->format('M Y');
             ?>
-            <span class="ml-1 mr-1">-</span>
-            <?php
-            if ($work->getCurrent() == 1) {
-                echo 'Current';
-            } else {
+            <span class="">-</span>
+            <?php if ($work->getCurrent() == 1) : ?>
+                <b class="current-border"><?= 'Current'; ?></b>
+            <?php else:
                 $dateDatabase = $work->getDataEnd();
                 $date = new DateTime($dateDatabase);
                 echo $date->format('M Y');
-            }
+                endif;
             ?>
             <!-- Dates Section End -->
 
             <!-- Description -->
-            <p class="mt-2"><?= $work->getDescription(); ?></p>
+            <p class="m-2"><?= nl2br($work->getDescription()); ?></p>
 
             <!-- Buttons -->
             <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
@@ -47,6 +46,7 @@
             <?php endif; ?>
             <hr>
         <?php endforeach; ?>
+        </div>
 
     </div>
 </div>

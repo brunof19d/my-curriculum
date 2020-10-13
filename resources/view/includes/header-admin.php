@@ -10,16 +10,18 @@
 
 <body>
 
-<div class="container mt-3">
-
-    <?php if (isset($_SESSION['logged']) == TRUE): ?>
-        <div class="container border bg-light mb-2 text-center">
-            <h1>Admin Page</h1>
-            <div class="d-flex justify-content-between responsive nowrap">
-                <a href="/admin" class="btn btn-dark m-2">Home</a>
-                <a href="/register" class="btn btn-dark m-2">Register Admin</a>
-                <a href="/logout" class="btn btn-danger m-2">Logout</a>
-            </div>
+<?php if (isset($_SESSION['logged']) == TRUE): ?>
+    <div class="border bg-light mb-2 text-center header-admin">
+        <h1>Admin Page</h1>
+        <div class="d-flex justify-content-between responsive nowrap">
+            <a href="/admin" class="btn btn-dark m-2">Home</a>
+            <a href="/register" class="btn btn-success m-2">Register Admin</a>
+            <a href="/logout" class="btn btn-danger m-2">Logout</a>
         </div>
-    <?php endif; ?>
+    </div>
+<?php endif; ?>
+
+<div class="container-fluid">
+
+
 

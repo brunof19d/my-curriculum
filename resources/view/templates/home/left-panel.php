@@ -1,6 +1,6 @@
-<div class="row">
+<div class="row mt-3">
 
-    <div class="left-panel col-sm-4">
+    <div class="left-panel col-sm-3">
 
         <div class="border mb-1 shadow">
 

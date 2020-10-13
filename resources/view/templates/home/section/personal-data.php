@@ -1,6 +1,6 @@
 <!-- Photo and Name -->
 <div class="img-profile mb-2">
-    <img src="img/<?= $queryPersonalData['photo']; ?>" alt="Image Profile" width="100%" height="230">
+    <img src="img/<?= $queryPersonalData['photo']; ?>" alt="Image Profile" width="100%" height="290">
     <h1 class="text-img"><?= $queryPersonalData['name']; ?></h1>
 </div>
 

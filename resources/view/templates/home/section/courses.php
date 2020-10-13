@@ -1,6 +1,8 @@
-<p class="title-main"><i class="fas fa-graduation-cap"></i><strong>Courses</strong></p>
-
-<?php \App\Helper\ButtonAdmin::addButton('/add-course'); ?>
+<p class="title-main">
+    <i class="fas fa-graduation-cap"></i>
+    <strong>Courses</strong>
+    <?php \App\Helper\ButtonAdmin::addButton('/add-course'); ?>
+</p>
 
 <table class="table table-striped table-bordered mt-3  table-responsive">
     <thead>

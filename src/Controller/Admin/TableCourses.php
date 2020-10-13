@@ -24,8 +24,6 @@ class TableCourses implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        SessionRedirect::redirect(FALSE, '/login');
-
         $html = $this->render('admin/section/table-courses.php', [
             'title'             => 'Table courses',
             'queryCourses'      => $this->repository->allCourses(),
