@@ -10,14 +10,13 @@ if (isset($_SESSION['logged']) == TRUE) {
 
     <form method="post" action="<?= $action; ?>" class="card mx-auto w-50">
 
-        <div class="card-header p-5 text-center">
+        <?php if ($_SERVER['PATH_INFO'] == '/login') : ?>
+            <div class="card-header p-5 text-center">
 
-            <h1>Administrative Page.</h1>
+                <h1>Administrative Page.</h1>
 
-            <!-- Button Back -->
-            <?php \App\Helper\ButtonAdmin::backButton('/home'); ?>
-
-        </div>
+            </div>
+        <?php endif; ?>
 
         <div class="card-body p-5">
 

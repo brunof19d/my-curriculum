@@ -45,8 +45,8 @@ class PdoWorkRepository implements WorkRepository
             $workData->setId($row['id']);
             $workData->setTitleJob($row['title_job']);
             $workData->setCompanyName($row['company_name']);
-            $workData->setDataBegin($row['date_begin']);
-            $workData->setDataEnd($row['date_end']);
+            $workData->setDateBegin($row['date_begin']);
+            $workData->setDateEnd($row['date_end']);
             $workData->setCurrent($row['current']);
             $workData->setDescription($row['description']);
             array_push($workList, $workData);
@@ -86,8 +86,8 @@ class PdoWorkRepository implements WorkRepository
         $stmt->execute([
             ':title_job' => $work->getTitleJob(),
             ':company_name' => $work->getCompanyName(),
-            ':data_begin' => $work->getDataBegin(),
-            ':data_end' => $work->getDataEnd(),
+            ':data_begin' => $work->getDateBegin(),
+            ':data_end' => $work->getDateEnd(),
             ':current' => $work->getCurrent(),
             ':description' => $work->getDescription()
         ]);
@@ -113,8 +113,8 @@ class PdoWorkRepository implements WorkRepository
         $stmt = $this->pdo->prepare($sql);
         $stmt->bindValue(':title_job', $work->getTitleJob(), PDO::PARAM_STR);
         $stmt->bindValue(':company_name', $work->getCompanyName(), PDO::PARAM_STR);
-        $stmt->bindValue(':data_begin', $work->getDataBegin());
-        $stmt->bindValue(':data_end', $work->getDataEnd());
+        $stmt->bindValue(':data_begin', $work->getDateBegin());
+        $stmt->bindValue(':data_end', $work->getDateEnd());
         $stmt->bindValue(':current', $work->getCurrent());
         $stmt->bindValue(':description', $work->getDescription());
         $stmt->bindValue(':id', $work->getId());

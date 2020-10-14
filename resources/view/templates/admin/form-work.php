@@ -27,48 +27,45 @@ if (isset($row)) {
 
             <!--  Title Job Name -->
             <div class="form-group">
-                <label class="font-italic">Title name job</label>
-                <input name="title_job" type="text" class="form-control"
-                       value="<?= isset($row) ? $row['title_job'] : ''; ?>">
+                <label for="titleJobName" class="font-italic">Title name job</label>
+                <input id="titleJobName" name="title_job" type="text" class="form-control" value="<?= isset($row) ? $row['title_job'] : ''; ?>" placeholder="Example: Web Developer">
             </div>
 
             <!--  Company  -->
             <div class="form-group">
-                <label class="font-italic">Company Name</label>
-                <input name="company_name" type="text" class="form-control"
-                       value="<?= isset($row) ? $row['company_name'] : ''; ?>">
+                <label for="companyName" class="font-italic">Company Name</label>
+                <input id="companyName"name="company_name" type="text" class="form-control" value="<?= isset($row) ? $row['company_name'] : ''; ?>" placeholder="Company">
             </div>
 
-            <!--  Dates Jobs-->
+            <!--  Dates -->
             <div class="d-flex justify-content-center align-items-center mt-3">
 
-                <!--  Dates Begin-->
+                <!-- Begin-->
                 <div class="form-group mr-2 text-center">
                     <label class="font-italic">Date Begin</label>
-                    <input name="date_begin" type="date" class="form-control" value="<?= isset($row) ? $row['data_begin'] : ''; ?>">
+                    <input name="date_begin" type="date" class="form-control" value="<?= isset($row) ? $row['date_begin'] : ''; ?>">
                 </div>
 
-                <!--  Dates End-->
+                <!-- End-->
                 <div class="form-group ml-2 text-center">
                     <label id="label_end" style="display:<?= $cssDisplay ?>" class="font-italic">Date End</label>
-                    <input id="date_end" style="display:<?= $cssDisplay ?>" name="date_end" type="date" class="form-control" value="<?= isset($row) ? $row['data_end'] : ''; ?>">
+                    <input id="date_end" style="display:<?= $cssDisplay ?>" name="date_end" type="date" class="form-control" value="<?= isset($row) ? $row['date_end'] : ''; ?>">
                 </div>
 
                 <!--  Check Current -->
                 <div class="form-check-inline ml-2 mt-3">
-                    <label class="form-check-label font-italic">Current</label>
+                    <label for="check" class="form-check-label font-italic">Current</label>
                     <input id="check" onclick="checkBox()" name="current" type="checkbox" class="form-check-input ml-2" value="1" <?= isset($row) ? ($row['current'] == 1) ? 'checked' : '' : ''; ?>/>
                 </div>
+
             </div>
 
             <!--  Description -->
             <div class="form-group">
-                <label class="font-italic">Description</label>
-                <textarea name="description" class="form-control" rows="6"><?= isset($row) ? $row['description'] : ''; ?></textarea>
+                <label for="descriptionText" class="font-italic">Description</label>
+                <textarea id="descriptionText" name="description" class="form-control" rows="6" placeholder="Description text here"><?= isset($row) ? $row['description'] : ''; ?></textarea>
             </div>
-            <hr>
 
-            <?php /** @var FormEditWork | FormAddWork $button */ ?>
             <button class="btn btn-success w-100 mb-3 mt-3"><?= $button; ?></button>
 
     </form>
@@ -77,13 +74,5 @@ if (isset($row)) {
 
 <!-- JavaScript Function for input Date End ( Enable/Disable ) -->
 <script >
-    function checkBox() {
-        if (document.getElementById("check").checked === true) {
-            document.getElementById("label_end").style.display = "none"
-            document.getElementById("date_end").style.display = "none"
-        } else {
-            document.getElementById("label_end").style.display = "block"
-            document.getElementById("date_end").style.display = "block"
-        }
-    }
+   <?php require __DIR__ . '/../../../../public/js/checkCurrent.js'; ?>
 </script>

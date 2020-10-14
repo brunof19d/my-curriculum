@@ -81,8 +81,8 @@ class ControllerWork implements RequestHandlerInterface
         // Setters
         $this->work->setTitleJob($title_job);
         $this->work->setCompanyName($company);
-        $this->work->setDataBegin($date_begin);
-        $this->work->setDataEnd($date_end);
+        $this->work->setDateBegin($date_begin);
+        $this->work->setDateEnd($date_end);
         $this->work->setCurrent($current);
         $this->work->setDescription($description);
 

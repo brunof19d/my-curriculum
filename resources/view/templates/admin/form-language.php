@@ -2,7 +2,7 @@
 
 <div class="container border bg-light">
 
-    <h4 class="text-center">Languages</h4>
+    <h4 class="text-center"><u>Languages</u></h4>
 
     <?php require_once __DIR__ . '/../../includes/alert.php'; ?>
 
@@ -10,7 +10,7 @@
 
         <div class="form-group">
             <label for="inputLanguage">Language</label>
-            <input type="text" class="form-control w-25" id="inputLanguage" name="language">
+            <input type="text" class="form-control w-25" id="inputLanguage" name="language" placeholder="Name Language" required>
         </div>
 
         <div class="form-check">

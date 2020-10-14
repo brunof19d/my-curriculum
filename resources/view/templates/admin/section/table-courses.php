@@ -28,8 +28,8 @@
         <th>Institution</th>
         <th>Category</th>
         <th>Certified</th>
-        <th>Featured in the table (only 5)</th>
         <?php if (isset($_SESSION['logged']) == TRUE): ?>
+            <th>Featured in the table (only 5)</th>
             <th class="text-center">#</th>
         <?php endif; ?>
     </tr>
@@ -47,14 +47,9 @@
             <td class="text-center"><?= \App\Helper\TranslateInstitution::handle($course->getInstitution()); ?></td>
             <td class="text-center"><?= \App\Helper\TranslateCategory::handle($course->getCategory()); ?></td>
             <td class="text-center"><?php require __DIR__ . '/../../../includes/certified-file-url.php'; ?></td>
-            <!-- Highlight <td> -->
-            <?php require __DIR__ . '/../../../includes/table-highlight-course.php'; ?>
-
-            <!-- Button Delete Course -->
             <?php if (isset($_SESSION['logged']) == TRUE): ?>
-                <td>
-                    <a href="/delete-course?id=<?= $course->getCourseId(); ?>" class="btn btn-danger btn-sm">Delete</a>
-                </td>
+                <td><?php require __DIR__ . '/../../../includes/table-highlight-course.php'; ?></td>
+                <td><a href="/delete-course?id=<?= $course->getCourseId(); ?>" class="btn btn-danger btn-sm">Delete</a></td>
             <?php endif; ?>
         </tr>
     <?php endforeach; ?>

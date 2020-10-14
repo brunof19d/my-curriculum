@@ -1,13 +1,15 @@
 <?php require_once __DIR__ . '/../../includes/header-admin.php'; ?>
 
 <div class="container border bg-light">
+
     <form method="post" action="/controller-skills" class="mt-3">
 
         <?php require_once __DIR__ . '/../../includes/alert.php'; ?>
 
-        <div class="form-group w-25">
-            <label>Category</label>
-            <select name="category_skill" class="form-control">
+        <div class="form-group">
+            <label for="category">Category</label>
+            <select id="category" name="category_skill" class="form-control" required>
+                <option value="" selected disabled> Choose...</option>
                 <option value="1">Front-end</option>
                 <option value="4">Framework Front</option>
                 <option value="2">Back-end</option>
@@ -17,14 +19,13 @@
         </div>
 
        <div class="form-group">
-           <label>Name</label>
-           <input name="name_skill" type="text" class="form-control w-25">
+           <label for="nameSkill">Name</label>
+           <input id="nameSkill" name="name_skill" type="text" class="form-control" placeholder="Name Skill" required>
        </div>
 
-        <hr><button type="submit" class="btn btn-success m-2">Save</button>
+        <button type="submit" class="btn btn-success w-100 mb-2">Save</button>
 
     </form>
-</div>
 
-<?php require_once __DIR__ . '/../../includes/footer.php'; ?>
+</div>
 

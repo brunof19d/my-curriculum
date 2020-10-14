@@ -9,8 +9,8 @@ class Work
     private int $id;
     private string $titleJob;
     private string $companyName;
-    private string $dataBegin;
-    private string $dataEnd;
+    private string $dateBegin;
+    private string $dateEnd;
     private string $current;
     private string $description;
 
@@ -44,24 +44,24 @@ class Work
         return $this->companyName;
     }
 
-    public function setDataBegin($dataBegin)
+    public function setDateBegin($dataBegin)
     {
-        $this->dataBegin = $dataBegin;
+        $this->dateBegin = $dataBegin;
     }
 
-    public function getDataBegin(): string
+    public function getDateBegin(): string
     {
-        return $this->dataBegin;
+        return $this->dateBegin;
     }
 
-    public function setDataEnd($dataEnd)
+    public function setDateEnd($dataEnd)
     {
-        $this->dataEnd = $dataEnd;
+        $this->dateEnd = $dataEnd;
     }
 
-    public function getDataEnd(): string
+    public function getDateEnd(): string
     {
-        return $this->dataEnd;
+        return $this->dateEnd;
     }
 
     public function setCurrent($current)

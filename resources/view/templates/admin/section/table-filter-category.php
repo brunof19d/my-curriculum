@@ -54,3 +54,5 @@
 </table>
 
 <script><?php require_once __DIR__ . '/../../../../../public/js/inputSearch.js'; ?></script>
+
+<?php require_once __DIR__ . '/../../../includes/footer.php' ?>

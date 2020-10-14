@@ -16,7 +16,7 @@
             <ul class="d-flex justify-content-center">
 
                 <li class="mr-2">
-                    <a class="anchor-social-media" href="#"><i class="fab fa-github icon-footer"></i>Github</a>
+                    <a class="anchor-social-media" href="https://github.com/brunof19d" target="_blank"><i class="fab fa-github icon-footer"></i>Github</a>
                 </li>
                 <li class="ml-2">
                     <a class="anchor-social-media" href="#"><i class="fab fa-linkedin icon-footer"></i>Linkedin</a>

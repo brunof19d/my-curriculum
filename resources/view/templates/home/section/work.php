@@ -10,7 +10,7 @@
             <?php endif; ?>
         </p>
         <div id="loop-hr">
-        <?php /** @var \App\Entity\Model\Admin $query */ ?>
+
         <?php foreach ($queryWork as $work): ?>
 
             <!-- Title Job -->
@@ -19,7 +19,7 @@
             <!-- Dates Section Begin -->
             <i class="far fa-calendar-alt"></i>
             <?php
-            $dateDatabase = $work->getDataBegin();
+            $dateDatabase = $work->getDateBegin();
             $date = new DateTime($dateDatabase);
             echo $date->format('M Y');
             ?>
@@ -27,7 +27,7 @@
             <?php if ($work->getCurrent() == 1) : ?>
                 <b class="current-border"><?= 'Current'; ?></b>
             <?php else:
-                $dateDatabase = $work->getDataEnd();
+                $dateDatabase = $work->getDateEnd();
                 $date = new DateTime($dateDatabase);
                 echo $date->format('M Y');
                 endif;
