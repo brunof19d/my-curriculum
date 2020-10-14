@@ -17,11 +17,13 @@ use App\Controller\Admin\DeleteInstitution;
 use App\Controller\Admin\DeleteLanguage;
 use App\Controller\Admin\DeleteSkills;
 use App\Controller\Admin\DeleteWork;
+use App\Controller\Admin\Form\FormAbout;
 use App\Controller\Admin\Form\FormAddCourse;
 use App\Controller\Admin\Form\FormAddEducation;
 use App\Controller\Admin\Form\FormAddLanguage;
 use App\Controller\Admin\Form\FormAddSkill;
 use App\Controller\Admin\Form\FormAddWork;
+use App\Controller\Admin\Form\FormContact;
 use App\Controller\Admin\Form\FormEditEducation;
 use App\Controller\Admin\Form\FormEditPersonalData;
 use App\Controller\Admin\Form\FormEditSkills;
@@ -38,6 +40,10 @@ return [
 
     //Home
     '/home' => Main::class,
+
+    //Footer
+    '/form-about' => FormAbout::class,
+    '/contact' => FormContact::class,
 
     // Admin Area
     '/login' => FormLogin::class,

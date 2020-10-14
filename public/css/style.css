@@ -144,9 +144,26 @@ ul {
     font-weight: 500;
 }
 
+.header-contact {
+    background: #599bb3 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    color: white;
+}
+
+.btn-contact {
+    background: #599bb3 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    color: white;
+    border-radius: 20px;
+}
+
+.input-contact {
+    border-radius: 20px;
+}
+
 #loop-hr hr:last-child {
     display: none;
 }
+
+
 
 
 
