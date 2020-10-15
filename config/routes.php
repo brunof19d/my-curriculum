@@ -1,8 +1,11 @@
 <?php
 
 
+use App\Controller\About;
 use App\Controller\Admin\Admin;
+use App\Controller\Admin\ControllerAbout;
 use App\Controller\Admin\ControllerAdmin;
+use App\Controller\Admin\ControllerContact;
 use App\Controller\Admin\ControllerCourses;
 use App\Controller\Admin\ControllerEducation;
 use App\Controller\Admin\ControllerLanguage;
@@ -23,7 +26,6 @@ use App\Controller\Admin\Form\FormAddEducation;
 use App\Controller\Admin\Form\FormAddLanguage;
 use App\Controller\Admin\Form\FormAddSkill;
 use App\Controller\Admin\Form\FormAddWork;
-use App\Controller\Admin\Form\FormContact;
 use App\Controller\Admin\Form\FormEditEducation;
 use App\Controller\Admin\Form\FormEditPersonalData;
 use App\Controller\Admin\Form\FormEditSkills;
@@ -34,6 +36,7 @@ use App\Controller\Admin\HighlightCourse;
 use App\Controller\Admin\Logout;
 use App\Controller\Admin\TableCourses;
 use App\Controller\Admin\TableFilterCategory;
+use App\Controller\FormContact;
 use App\Controller\Main;
 
 return [
@@ -41,12 +44,17 @@ return [
     //Home
     '/home' => Main::class,
 
+    // Login
+    '/login' => FormLogin::class,
+
     //Footer
+    '/about' => About::class,
     '/form-about' => FormAbout::class,
+    '/controller-about' => ControllerAbout::class,
     '/contact' => FormContact::class,
+    '/controller-contact' => ControllerContact::class,
 
     // Admin Area
-    '/login' => FormLogin::class,
     '/register' => FormRegister::class,
     '/admin' => Admin::class,
     '/logout' => Logout::class,

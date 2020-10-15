@@ -33,9 +33,6 @@
                 </li>
                 <li class="ml-2">
                     <a class="anchor-social-media" href="/contact">Contact</a>
-                    <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
-                        <a href="/form-contact" class="btn btn-dark btn-sm">Edit</a>
-                    <?php endif; ?>
                 </li>
             </ul>
         </div>

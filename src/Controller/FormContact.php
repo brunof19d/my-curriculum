@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\Admin\Form;
+namespace App\Controller;
 
 
 use App\Helper\RenderHtml;
@@ -16,8 +16,8 @@ class FormContact implements RequestHandlerInterface
 
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
-        $html = $this->render('admin/form-contact.php', [
-            'title' => 'Edit About',
+        $html = $this->render('home/section/form-contact.php', [
+            'title' => 'Contact'
         ]);
         return new Response(200, [], $html);
     }
