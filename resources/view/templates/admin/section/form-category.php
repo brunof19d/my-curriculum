@@ -8,7 +8,7 @@
 
             <div class="form-group">
 
-                <label for="nameCategory">Register Category:</label>
+                <label for="nameCategory" class="font-italic">Register Category:</label>
                 <input id="nameCategory" type="text" class="form-control" name="name_category" placeholder="Name category" required>
 
             </div>

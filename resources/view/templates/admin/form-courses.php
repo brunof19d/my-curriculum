@@ -13,7 +13,7 @@
 
             <!-- Institution Select -->
             <div class="form-group">
-                <label for="selectInstitution">Institution</label>
+                <label for="selectInstitution" class="font-italic">Institution</label>
                 <a href="#instituion" class="btn btn-success btn-sm">Add</a>
                 <select id="selectInstitution" class="form-control" name="institution" required>
                     <option selected disabled value="">Choose...</option>
@@ -25,7 +25,7 @@
 
             <!-- Category Select -->
             <div class="form-group">
-                <label for="selectCategory">Category</label>
+                <label for="selectCategory" class="font-italic">Category</label>
                 <a href="#category" class="btn btn-success btn-sm">Add</a>
                 <select id="selectCategory" class="form-control" name="category" required>
                     <option selected disabled value="">Choose...</option>
@@ -37,7 +37,7 @@
 
             <!-- Course -->
             <div class="form-group">
-                <label for="nameCourse">Course</label>
+                <label for="nameCourse" class="font-italic">Course</label>
                 <input id="nameCourse" type="text" name="course_name" class="form-control" placeholder="Name Course"
                        required>
             </div>
@@ -45,22 +45,22 @@
 
             <!-- Description -->
             <div class="form-group">
-                <label for="descriptionCourse">Description ( Optional )</label>
+                <label for="descriptionCourse" class="font-italic">Description ( Optional )</label>
                 <textarea id="descriptionCourse" name="course_description" class="form-control" placeholder="Description here" rows="5"></textarea>
             </div>
 
             <!-- Certified File -->
             <div class="form-group">
-                <label>Certified ( Optional )</label>
+                <label class="font-italic">Certified ( Optional )</label>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" name="certified_file">
-                    <label class="custom-file-label">Choose file</label>
+                    <label class="custom-file-label" class="font-italic">Choose file</label>
                 </div>
             </div>
 
             <!-- Certified URL -->
             <div class="form-group">
-                <label for="urlCourse">If you prefer you can put a URL to forward to the site. (Optional)</label>
+                <label for="urlCourse" class="font-italic">If you prefer you can put a URL to forward to the site. (Optional)</label>
                 <input id="urlCourse" type="text" class="form-control" name="certified_url" placeholder="https://www.url.com.br/course">
             </div>
 

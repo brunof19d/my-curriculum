@@ -12,7 +12,7 @@
 
         <!-- College Name -->
         <div class="form-group">
-            <label for="collegeName">College Name</label>
+            <label for="collegeName" class="font-italic">College Name</label>
             <input id="collegeName" type="text" class="form-control" name="college_name"
                    value="<?= isset($row) ? $row['name_college'] : ''; ?>"
                    placeholder="Example: University of Michigan">
@@ -36,7 +36,7 @@
 
         <!-- Degree -->
         <div class="form-group">
-            <label for="degreeName">Degree</label>
+            <label for="degreeName" class="font-italic">Degree</label>
             <input id="degreeName" type="text" name="degree" class="form-control"
                    value="<?= isset($row) ? $row['degree'] : ''; ?>"
                    placeholder="Example: Bachelor's Degree in Computer Science">

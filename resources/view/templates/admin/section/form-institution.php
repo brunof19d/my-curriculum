@@ -8,7 +8,7 @@
 
             <div class="form-group">
 
-                <label for="registerInstitution">Register Institution:</label>
+                <label for="registerInstitution" class="font-italic">Register Institution:</label>
                 <input id="registerInstitution" type="text" class="form-control" name="institution_name" placeholder="Name Institution" required>
 
             </div>

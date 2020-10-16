@@ -14,14 +14,14 @@
 
                 <!-- Photo -->
                 <div class="form-group">
-                    <label>Photo Profile</label>
+                    <label class="font-italic">Photo Profile</label>
                     <input name="photo_profile" type="file" class="form-control-file">
                     <input type="hidden" name="photo_current" value="<?= $row['photo']; ?>">
                 </div>
 
                 <!--  Label Name  -->
                 <div class="form-group">
-                    <label>Name:</label>
+                    <label class="font-italic">Name:</label>
                     <input name="name" type="text" class="form-control" value="<?= $row['name']; ?>">
                 </div>
 
@@ -29,20 +29,20 @@
 
                     <!--  Profession -->
                     <div class="form-group col-md-6">
-                        <label>Profession:</label>
+                        <label class="font-italic">Profession:</label>
                         <input name="profession" type="text" class="form-control w-75" value="<?= $row['job']; ?>">
                         <small class="form-text text-muted">Example: Web Developer.</small>
                     </div>
 
                     <!--  City -->
                     <div class="form-group col-md-3">
-                        <label>City:</label>
+                        <label class="font-italic">City:</label>
                         <input name="city" type="text" class="form-control w-75" value="<?= $row['city']; ?>">
                     </div>
 
                     <!--  Country -->
                     <div class="form-group col-md-3">
-                        <label>Country:</label>
+                        <label class="font-italic">Country:</label>
                         <input name="country" type="text" class="form-control w-75" value="<?= $row['country']; ?>">
                     </div>
 
@@ -52,13 +52,13 @@
 
                     <!--  Email -->
                     <div class="form-group col-md-6">
-                        <label>Email:</label>
+                        <label class="font-italic">Email:</label>
                         <input name="email" type="email" class="form-control w-75" value="<?= $row['email']; ?>">
                     </div>
 
                     <!--  Phone -->
                     <div class="form-group col-md-6">
-                        <label>Phone:</label>
+                        <label class="font-italic">Phone:</label>
                         <input name="phone" type="text" class="form-control w-75" value="<?= $row['phone']; ?>">
                         <small class="form-text text-muted">Example: 315 999 999 999</small>
                     </div>
