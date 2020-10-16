@@ -66,7 +66,7 @@ class PdoAdminRepository implements AdminRepository
         // Check Password
         if ($count > 0) {
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($admin->getPassword() == $result['password']) {
+            if (password_verify($admin->getPassword(), $result['password'])) {
                 return true;
             }
         }

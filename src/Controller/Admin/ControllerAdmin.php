@@ -55,6 +55,8 @@ class ControllerAdmin implements RequestHandlerInterface
             if (!$email) return $pageRedirect;
             if (!$password) return $pageRedirect;
 
+            $password = password_hash($password, PASSWORD_DEFAULT );
+
             $this->admin->setEmail($email);
             $this->admin->setPassword($password);
             $this->repository->save($this->admin);
