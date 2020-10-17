@@ -1,8 +1,8 @@
-##Curriculum PHP
+## Curriculum PHP
 
 ![GitHub](https://img.shields.io/github/license/brunof19d/my-curriculum)
 
-##About
+## About
 
 Simple curriculum design, fully administered and managed by the website.
 
@@ -16,12 +16,12 @@ Backend: PHP & MySQL.
   - MySQL 5.6 / MariaDB 10.0 or higher for spatial features in MySQL.
   - Composer.
 I
-##Installation
+## Installation
 Run the command below to install all composer dependencies
 
     composer install
 
-##Configuration
+## Configuration
 
     CREATE DATABASE database;
     
