@@ -27,7 +27,7 @@
         <div class="col-lg-4 mt-3">
             <ul class="d-flex justify-content-center">
                 <li class="mr-2"><a class="anchor-social-media" href="/about">About</a>
-                    <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
+                    <?php if (isset($_SESSION['logged']) == TRUE): ?>
                     <a href="/form-about" class="btn btn-dark btn-sm">Edit</a>
                     <?php endif; ?>
                 </li>

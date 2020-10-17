@@ -26,7 +26,7 @@
     <p> <?= $education->getDegree(); ?> </p>
 
     <!-- Buttons -->
-    <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
+    <?php if (isset($_SESSION['logged']) == TRUE): ?>
         <div class="d-flex justify-content-start">
             <a href="/edit-education?id=<?= $education->getId(); ?>" class="btn btn-dark btn-sm ml-1">Edit</a>
             <a href="/delete-education?id=<?= $education->getId(); ?>" class="btn btn-danger btn-sm ml-1">Delete</a>

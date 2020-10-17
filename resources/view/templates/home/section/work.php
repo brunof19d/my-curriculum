@@ -5,9 +5,7 @@
         <p class="title-main">
             <i class="fas fa-briefcase"></i>
             <strong>Work Experience</strong>
-            <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
-                <a href="/add-work-page" class="btn btn-success btn-sm ml-1">Add</a>
-            <?php endif; ?>
+            <?php \App\Helper\ButtonAdmin::addButton('/add-work-page'); ?>
         </p>
         <div id="loop-hr">
 
@@ -38,7 +36,7 @@
             <p class="m-2"><?= nl2br($work->getDescription()); ?></p>
 
             <!-- Buttons -->
-            <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
+            <?php if (isset($_SESSION['logged']) == TRUE): ?>
                 <div class="d-flex align-items-center">
                     <a href="/edit-work?edit=<?= $work->getId(); ?>" class="btn btn-dark btn-sm ml-1">Edit</a>
                     <a href="/delete-work?id=<?= $work->getId(); ?>" class="btn btn-danger btn-sm ml-1">Delete</a>

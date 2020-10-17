@@ -8,7 +8,13 @@ require __DIR__ . '/../vendor/autoload.php';
 
 require __DIR__ . '/../config/config.php';
 
-$dataPath = $_SERVER['PATH_INFO'];
+
+if ( isset ( $_SERVER['PATH_INFO'] ) ) {
+    $dataPath = $_SERVER['PATH_INFO'];
+} else {
+    $dataPath = '';
+}
+
 $routes = require __DIR__ . '/../config/routes.php';
 
 if (!array_key_exists($dataPath, $routes)) {

@@ -42,6 +42,7 @@ use App\Controller\Main;
 return [
 
     //Home
+    '' => Main::class,
     '/home' => Main::class,
 
     // Login

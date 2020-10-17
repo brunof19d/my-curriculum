@@ -14,7 +14,7 @@ class ButtonAdmin
      */
     public static function addButton(string $actionRedirect): void
     {
-        if ($_SERVER['PATH_INFO'] == '/admin') {
+        if (isset($_SESSION['logged']) == TRUE) {
             echo "<a href=\"{$actionRedirect}\" class=\"btn btn-success btn-sm ml-1\">Add</a>";
         }
     }
@@ -25,7 +25,7 @@ class ButtonAdmin
      */
     public static function editButton(string $actionRedirect): void
     {
-        if ($_SERVER['PATH_INFO'] == '/admin') {
+        if (isset($_SESSION['logged']) == TRUE) {
             echo "<div class=\"d-flex justify-content-start\"><a href=\"{$actionRedirect}\" class=\"btn btn-dark btn-sm mb-2\">Edit</a></div>";
         }
     }
@@ -36,7 +36,7 @@ class ButtonAdmin
      */
     public static function backButton(string $actionRedirect): void
     {
-        if ($_SERVER['PATH_INFO'] == '/login') {
+        if (isset($_SESSION['logged']) == TRUE) {
             echo "<a href=\"{$actionRedirect}\" class=\"btn btn-dark m-2\">Back</a>";
         }
     }

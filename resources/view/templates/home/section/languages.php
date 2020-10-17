@@ -12,7 +12,7 @@
             <?= $language->getLevelLanguage(); ?>
         </p>
 
-        <?php if ($_SERVER['PATH_INFO'] == '/admin'): ?>
+        <?php if (isset($_SESSION['logged']) == TRUE): ?>
             <a href="/delete-language?id=<?= $language->getId(); ?>" class="btn btn-danger btn-sm"> Delete </a>
         <?php endif; ?>
     </div>
