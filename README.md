@@ -15,7 +15,7 @@ Backend: PHP & MySQL.
   - PHP 7.4 or higher with PDO drivers for MySQL.
   - MySQL 5.6 / MariaDB 10.0 or higher for spatial features in MySQL.
   - Composer.
-I
+
 ## Installation
 Run the command below to install all composer dependencies
 
