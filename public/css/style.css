@@ -1,0 +1,171 @@
+/**
+ * @author Bruno Dadario <brunof19d@gmail.com>
+ */
+
+/* TAGS */
+
+footer {
+    text-align: center;
+    color: white;
+    background-color: cadetblue;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+svg {
+    margin-right: 10px;
+    color: cadetblue;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Class */
+
+.header-admin {
+    text-align: center;
+}
+
+.icon-footer {
+    color: white;
+    font-size: 25px;
+}
+
+.left-panel .right-panel {
+    word-wrap: break-word;
+}
+
+.anchor-social-media {
+    text-decoration: none !important;
+    color: white;
+}
+
+.p-color {
+    color: #757575 !important;
+}
+
+.current-border {
+    background-color: cadetblue;
+    padding: 1px 5px 1px 5px;
+    border: 1px solid #33bdef;
+    border-radius: 5px;
+}
+
+.title-main {
+    font-size: 30px;
+    color: #757575 !important;
+}
+
+.shadow {
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16), 0 5px 30px 0 rgba(0, 0, 0, 0.12);
+}
+
+.left-icon {
+    font-size: 20px;
+    color: #757575 !important;
+}
+
+.filter-table {
+    font-size: 14px;
+}
+
+.framework-alert {
+    color: cadetblue;
+    font-weight: 500;
+}
+
+.header-contact {
+    background: #599bb3 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    color: white;
+}
+
+.btn-contact {
+    background: #599bb3 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    color: white;
+    border-radius: 20px;
+}
+
+.input-contact {
+    border-radius: 20px;
+}
+
+/* Image Profile */
+
+.img-profile {
+    display: inline-block;
+    position: relative;
+}
+
+.img-profile .text-img {
+    position: absolute;
+    top: 250px;
+    left: 10px;
+    font-size: 25px;
+    color: black;
+    font-weight: 400;
+}
+
+/* Button make in https://www.bestcssbuttongenerator.com */
+
+.myButton {
+    box-shadow: 0px 10px 14px -7px #276873;
+    background: #599bb3 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    border-radius:8px;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family: Arial, sans-serif;
+    font-size:20px;
+    font-weight:bold;
+    padding:13px 32px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #3d768a;
+    text-align: center;
+}
+.myButton:hover {
+    background: #408c99 linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+}
+
+.btn-back {
+    background: #599bb3 linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+    color: white;
+}
+
+.btn-back:hover {
+    color: lightgray;
+}
+
+.btn-edit {
+    border-radius: 20px;
+}
+
+.line-table-description {
+    width: 75%;
+    margin-bottom: 3px;
+    margin-top: 3px;
+}
+
+#searchCourse {
+    width: 80%;
+    margin-bottom: 10px;
+    padding: 10px 20px 10px 10px;
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+
+#loop-hr hr:last-child {
+    display: none;
+}
+
+@media only screen and (min-width: 1100px) {
+
+    .left-panel {
+        margin-left: 100px;
+    }
+
+}
